@@ -1,0 +1,21 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "devDependencies": {
+    "co-views": "^2.1.0",
+    "event-emitter": "^0.3.4",
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-scp2": "^0.2.0",
+    "koa": "^1.2.4",
+    "koa-body": "^1.6.0",
+    "koa-router": "^5.4.0",
+    "koa-session": "^3.4.0",
+    "koa-static-cache": "^3.1.7",
+    "node-fetch": "^1.6.3",
+    "path": "^0.12.7",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0",
+    "swig": "^1.4.2"
+  }
+}
