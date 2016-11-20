@@ -11,8 +11,11 @@ var path = require('path');
 var staticCache = require('koa-static-cache');//静态文件
 
 //页面
-router.get('/index',routerController.index);
-
+router.get('/index',routerController.index);//首页
+router.get('/mine',routerController.mine);//我的
+router.get('/login',routerController.login);//登录
+router.get('/forget',routerController.forget);//忘记密码
+router.get('/register',routerController.register);//注册
 //接口
 
 
