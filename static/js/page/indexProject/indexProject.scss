@@ -1,0 +1,139 @@
+.module-indexProject{
+  .Projcet {
+    background-color: #fff;
+    display: block;
+    padding-top: 1.2rem;
+  }
+  .details {
+    padding:0.5333333333rem 0.2666666667rem 0 0.2666666667rem;
+    border-bottom: 10px solid #f5f5f5;
+    overflow: hidden;
+  }
+
+  .quick-entry-link {
+    width: 20%;
+    float: left;
+    text-align: center;
+    margin-bottom: 0.4666666667rem;
+    color:#333;
+  }
+  .details-item {
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    border-radius: 100%;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 0.2rem;
+    padding-top:0.1rem;
+  }
+  .details-item-1 {
+    background-color: #07bbf5;
+  }
+  .details-item-2 {
+    background-color: #f5423e;
+  }
+  .details-item-3 {
+    background-color: #ffb800;
+  }
+  .details-item-4 {
+    background-color: #00b4a2;
+  }
+  .details-item-5 {
+    background-color: #fb8f01;
+  }
+  .details-item-6 {
+    background-color: #7f4de6;
+  }
+  .details-item-7 {
+    background-color: #fe970f;
+  }
+  .details-item-8 {
+    background-color: #f63d87;
+  }
+  .details-item-9 {
+    background-color: #1d92e3;
+  }
+  .details-item-10 {
+    background-color: #4ec8a4;
+  }
+  .nav-contaner {
+    border-bottom: 1px solid #dcdcdc;
+  }
+  .dynamic-nav{
+    overflow: hidden;
+    width: 5.3333333333rem;
+    height: 1.0666666667rem;
+    margin: 0.4rem auto;
+    border: 1px solid #ff3333;
+    border-radius: 0.1066666667rem;
+  }
+  .dynamic-nav>a {
+    width: 50%;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.4266666667rem;
+    line-height: 1.0666666667rem;
+  }
+  .red-white {
+    background-color: #ff3333;
+    color: #fff;
+  }
+  .white-red {
+    color: #ff3333;
+    background-color: #fff;
+  }
+  .dynamic-list {
+    padding: 0.4rem 0;
+    margin: 0 0.2666666667rem;
+    border-bottom: 1px solid #dcdcdc;
+  }
+  .dynamic-list-title {
+    line-height: 1.5;
+    font-size: 0.4266666667rem;
+    color: #666;
+    margin-bottom: 0.1333333333rem;
+  }
+  .dynamic {
+    border-bottom: 10px solid #f5f5f5;
+  }
+  .dynamic li:last-of-type{
+    border-bottom: none;
+  }
+  .dynamic-list p span {
+    color: #999;
+    font-size: 0.32rem;
+  }
+  .dynamic-list-time {
+    float: right;
+  }
+  .more {
+    width: 4.0rem;
+    height: 0.73333333rem;
+    line-height: 0.7333333333rem;
+    border:1px solid #ff3333;
+    border-radius: 0.1066666667rem;
+    display: block;
+    margin: 0.3333333333rem auto;
+    text-align: center;
+  }
+  .footer-nav {
+    color: #999;
+    text-align: center;
+    padding: 0.8rem 0;
+  }
+  .footer-nav span {
+    font-size: 0.3733333333rem;
+    border-right: 1px solid #999;
+    padding: 0 0.2666666667rem;
+  }
+  .footer-nav span:last-of-type {
+    border-right: none;
+  }
+  .copyright {
+    margin-top: 0.4rem;
+    font-size: 0.32rem;
+  }
+}

@@ -1,3 +1,78 @@
 .module-index{
+  .Index {
+    background-color: #fff;
+    display: block;
+    padding-top: 1.2rem;
+  }
 
+  .details {
+    padding: 0.5333333333rem 0.2666666667rem 0 0.2666666667rem;
+    border-bottom: 10px solid #f5f5f5;
+    overflow: hidden;
+  }
+  .quick-entry-link {
+    width: 25%;
+    float: left;
+    text-align: center;
+    margin-bottom: 0.4666666667rem;
+  }
+  .quick-entry-link .title{
+    color: #333;
+  }
+  .details-item {
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    border-radius: 100%;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 0.2rem;
+    padding-top:0.1rem;
+  }
+  .details-item-1 {
+    background-color: #07bbf5;
+  }
+  .details-item-2 {
+    background-color: #ffb800;
+  }
+  .details-item-3 {
+    background-color: #00b4a2;
+  }
+  .details-item-4 {
+    background-color: #fb8f01;
+  }
+  .h2-title-province {
+    font-size: 0.48rem;
+    line-height: 1.3333333333rem;
+    color: #333;
+    display: inline-block;
+  }
+  .more {
+    float: right;
+    color: #999;
+    font-size: 0.3733333333rem;
+    line-height: 1.3333333333rem;
+    padding: 0 0.2666666667rem;
+  }
+  .icon-contaner {
+    width: 0.5333333333rem;
+    height: 0.4666666667rem;
+    line-height: 0.4666666667rem;
+    float: left;
+    text-align: center;
+    margin: 0.48rem 0.2666666667rem;
+  }
+  .icon-contaner.invited span{
+    color: #07bbf5;
+    font-size: 0.4666666667rem;
+  }
+  .icon-contaner.win span{
+    color: #ffb800;
+    font-size: 0.4666666667rem;
+  }
+  .icon-contaner.purchase span{
+    color: #0078ff;
+    font-size: 0.4666666667rem;
+  }
 }

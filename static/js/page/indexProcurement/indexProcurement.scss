@@ -1,0 +1,31 @@
+.module-indexProcurement{
+  .contaner {
+    background-color: #fff;
+    display: block;
+    padding-top: 1.2rem;
+  }
+  .dynamic h2 {
+    border-bottom: 1px solid #dcdcdc;
+    line-height: 1.3333333333rem;
+    height:1.3333333333rem;
+  }
+  .h2-title {
+    height: 1.3333333333rem;
+    line-height: 1.3333333333rem;
+    color: #333;
+    padding: 0 0.2666666667rem;
+    font-size: 0.5066666667rem;
+  }
+  .more {
+    float: right;
+    color: #999;
+    font-size: .32rem;
+    line-height: 1.3333333333rem;
+    padding: 0 0.2666666667rem;
+  }
+  .icon-red {
+    display: inline-block;
+    margin: 0 -0.2rem 0 0.2666666667rem;
+    color: #ff3333;
+  }
+}

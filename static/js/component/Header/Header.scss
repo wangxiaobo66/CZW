@@ -1,0 +1,68 @@
+.module-Header{
+  .top-search {
+    background-color: #ff3333;
+    width: 100%;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10086;
+  }
+  .top-search .logo {
+    width: 2.24rem;
+    height: 0.5866666667rem;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0.3rem 0.2666666667rem;
+  }
+  .top-search .serch-btn {
+    padding: 0.1333333333rem;
+  }
+
+  .top-search .serch-btn img{
+    width: 0.3866666667rem;
+    height: 0.3733333333rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .top-search .search-container {
+    background-color: #fff;
+    display: inline-block;
+    width: 5.0666666667rem;
+    height: 0.7333333333rem;
+    line-height: 0.7333333333rem;
+    border-radius: 0.0666666667rem;
+  }
+  .top-search .search-containers {
+    margin-left: 0.4rem;
+    width: 8.2rem;
+  }
+  .top-search .search-input {
+    border:none;
+    width: 4rem;
+    overflow: hidden;
+    padding: .3em .1rem;
+    font-size: 0.32rem;
+  }
+
+  .top-search .mine {
+    font-size: 0.4rem;
+    color: #fff;
+    float: right;
+    padding: 0 0.5333333333rem
+  }
+  .top-search .login {
+    font-size: 0.4rem;
+    color: #fff;
+    float: right;
+    padding: 0 0.153333333rem
+  }
+  .cancel{
+    font-size: 0.4rem;
+    color: #fff;
+    float: right;
+    margin-right: 0.2666666667rem;
+  }
+}

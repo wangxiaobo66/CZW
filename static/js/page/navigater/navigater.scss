@@ -1,0 +1,67 @@
+.module-navigater{
+  .Navigater {
+    background-color: #fff;
+    display: block;
+    padding-top: 1.2rem;
+  }
+  .Navigater h1 {
+    height: 1.0666666667rem;
+    line-height: 1.0666666667rem;
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 0.5333333333rem;
+    color: #333;
+  }
+  .list-row-5,.list-row-6 {
+    overflow: auto;
+    border-bottom: 10px solid #f5f5f5;
+    padding: 0.2666666667rem;
+  }
+  .list-row-5 li,.list-row-6 li {
+    height: 0.8rem;
+    line-height: 0.8rem;
+    text-align: center;
+    font-size: 0.3733333333rem;
+    color: #666;
+  }
+  .list-row-5 li{
+    float: left;
+    width: 20%;
+  }
+  .list-row-6 li{
+    float: left;
+    width: 16.666666666%;
+  }
+  .list-row-5 li a,.list-row-6 li a{
+    color: #333;
+  }
+  /* 鬼畜图标调教 */
+  .icon-contaner {
+    width: 0.4rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    overflow: hidden;
+    border-radius: 0.0666666667rem;
+    float: left;
+    text-align: center;
+    margin: 0.3333333333rem 0.2666666667rem;
+  }
+  .icon-contaner .iconfont {
+    font-size: 0.2666666667rem;
+  }
+  .nav-bid .icon-contaner{
+    background-color: #65d4f9;
+    font-size: 0.2666666667rem;
+  }
+  .nav-purchase .icon-contaner{
+    background-color: #ffb800;
+    font-size: 0.2666666667rem;
+  }
+  .nav-project .icon-contaner{
+    background-color: #00b4a2;
+    font-size: 0.2666666667rem;
+  }
+  .nav-region .icon-contaner{
+    background-color: #fb8f01;
+    font-size: 0.2666666667rem;
+  }
+}

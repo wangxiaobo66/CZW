@@ -6,7 +6,14 @@ function index(state={},action){
             return state;
     }
 }
+function login(state={},action){
+    switch (action.type){
+        default:
+            return state;
+    }
+}
 
 export const CZW = combineReducers({
-    index//首页
+    index,//首页
+    login//登录
 });

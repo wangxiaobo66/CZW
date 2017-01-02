@@ -1,0 +1,103 @@
+.module-indexTenders{
+  .Bid {
+    background-color: #fff;
+    display: block;
+    padding-top: 1.2rem;
+  }
+  .Bid .topnav {
+    padding: 0.5333333333rem 0.2666666667rem 0 0.2666666667rem;
+    border-bottom: 10px solid #f5f5f5;
+    overflow: hidden;
+  }
+  .quick-entry-link {
+    width: 20%;
+    float: left;
+    text-align: center;
+    margin-bottom: 0.4666666667rem;
+    color: #333;
+  }
+  .details-item {
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    border-radius: 100%;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 0.2rem;
+    padding-top: 0.1rem;
+  }
+  .details-item-1 {
+    background-color: #07bbf5;
+  }
+  .details-item-2 {
+    background-color: #f5423e;
+  }
+  .details-item-3 {
+    background-color: #ffb800;
+  }
+  .details-item-4 {
+    background-color: #00b4a2;
+  }
+  .details-item-5 {
+    background-color: #fb8f01;
+  }
+  .details-item-6 {
+    background-color: #7f4de6;
+  }
+  .details-item-7 {
+    background-color: #fe970f;
+  }
+  .details-item-8 {
+    background-color: #f63d87;
+  }
+  .details-item-9 {
+    background-color: #1d92e3;
+  }
+  .details-item-10 {
+    background-color: #4ec8a4;
+  }
+  .Bid .middle-tab .title{
+    font-size: 0.48rem;
+    line-height: 1.3333333333rem;
+    color: #333;
+    display: inline-block;
+    padding: 0 0.2666666667rem;
+  }
+  .Bid .middle-tab>nav {
+    height: 1.3333333333rem;
+    border-bottom: 1px solid #dcdcdc;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+
+  .Bid .middle-tab .tab-lable {
+    float: right;
+    padding-right: 0.2666666667rem;
+  }
+
+  .bid-tenders,.bid-goods,.bid-service {
+    float: left;
+    line-height: 1.3333333333rem;
+    height: 1.3333333333rem;
+    color: #666;
+    font-size: 0.3733333333rem;
+    padding: 0 0.15rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  .bid-tenders.curr,.bid-goods.curr,.bid-service.curr {
+    color: #ff3333;
+    border-bottom: 1px solid #ff3333;
+  }
+  /*招标页面list*/
+  .dynamic-list {
+    padding: 0.4rem 0;
+    margin: 0 0.2666666667rem;
+    border-bottom: 1px solid #dcdcdc;
+  }
+  .dynamic-list p span {
+    color: #999;
+    font-size: 0.32rem;
+  }
+}

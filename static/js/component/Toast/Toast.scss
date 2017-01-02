@@ -1,0 +1,42 @@
+/**
+ * @file
+ * @author jinguangguo
+ * @date 2016/1/11
+ */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    top: 50%; // 黄金比例
+    text-align: center;
+    border-radius: 5px;
+    padding: 14px 15px;
+    white-space: normal;
+    word-break: break-all;
+    line-height: 1.4;
+    font-size: 0.14rem;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 1100;
+    .toast-tip {
+        margin-bottom: 5px;
+        text-align: center;
+        >svg {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}
+
+.toast-black {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    > svg {
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-right: .5rem;
+        position: relative;
+        top: .2rem;
+    }
+}

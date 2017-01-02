@@ -1,0 +1,48 @@
+.module-search{
+  .Search {
+    background-color: #fff;
+    display: block;
+    padding-top: 1.2rem;
+  }
+  .Search .top-search .search-container {
+    margin-left: 0.4rem;
+    width: 8.2rem;
+  }
+  .Search .top-search .cancel {
+    font-size: 0.4rem;
+    color: #fff;
+    float: right;
+    margin-right: 0.2666666667rem;
+  }
+
+  .ul-search li{
+    height: 1.2rem;
+    line-height: 1.2rem;
+    border-bottom: 1px solid #d5d5d5;
+    color: #d5d5d5;
+    font-size: 0.3733333333rem;
+    padding: 0 0.5333333333rem;
+  }
+  .btn-delete {
+    text-align: center;
+    display: block;
+    color: #999;
+    line-height: 1.2rem;
+    font-size: 0.3733333333rem;
+    border-bottom: 1px solid #d5d5d5;
+  }
+  /* 当ul里只有一个a标签的时候自动隐藏,超过5个li自动隐藏 */
+  .ul-search.limit-5 li:nth-of-type(n+6) {
+    display: none;
+  }
+  .hide{
+    display: none;
+  }
+  .upData-p{
+    color: #999;
+    font-size: 0.4rem;
+    text-align:center;
+    padding:0.3rem 0;
+    margin-bottom: 50px;
+  }
+}

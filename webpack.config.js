@@ -6,11 +6,24 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        'index': ['./static/js/page/index/index.js'],//登陆
+        'index': ['./static/js/page/index/index.js'],//首页
+        'indexTenders':['./static/js/page/indexTenders/indexTenders.js'],//首页-招标
+        'indexProject':['./static/js/page/indexProject/indexProject.js'],//首页-项目
+        'indexProcurement':['./static/js/page/indexProcurement/indexProcurement.js'],//首页-采购
+        'indexRegion':['./static/js/page/indexRegion/indexRegion.js'],//首页地区站
+        'regionProvince':['./static/js/page/regionProvince/regionProvince.js'],//省级项目
+        'regionCity':['./static/js/page/regionCity/regionCity.js'],//市级项目
+        'govProcurement':['./static/js/page/govProcurement/govProcurement.js'],//政府采购
+        'coProcurement':['./static/js/page/coProcurement/coProcurement.js'],//企业采购
         'mine': ['./static/js/page/mine/mine.js'],//我的
         'login':['./static/js/page/login/login.js'],//登录
         'forget':['./static/js/page/forget/forget.js'],//忘记密码
-        'register':['./static/js/page/register/register.js']//注册
+        'register':['./static/js/page/register/register.js'],//注册
+        'navigater':['./static/js/page/navigater/navigater.js'],//页面导航(四大导航)
+        'list':['./static/js/page/list/list.js'],//公用信息list列表
+        'cityList':['./static/js/page/cityList/cityList.js'],//公用地区list列表
+        'details':['./static/js/page/details/details.js'],//公用详情
+        'search':['./static/js/page/search/search.js']//搜索
     },
     output: {
         //path: path.resolve(__dirname, 'dist'),
