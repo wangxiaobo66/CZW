@@ -15,7 +15,6 @@ let store = createStore(CZW, applyMiddleware(thunk));
 
 let {} = require('./actions.js');//从actions中拿到方法
 
-//引入模块
 const { Header } = require('../../component/Header/Header');
 import '../../component/Toast/Toast';
 
