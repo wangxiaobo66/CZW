@@ -39,16 +39,17 @@ class component extends React.Component {
             <div className="module-search">
                 <div className="Search">
                     <div className="top-search">
-                        <span className="search-container">
+                        <div className="search-container">
                             <a className="serch-btn" href="javascript:;" onClick={(e) => this.click()}><img src="../img/search.png"/></a>
-                            <from>
+                            <form action="javascript:;">
                                 <input className="search-input"
+                                       ref="Search"
                                        value={this.state.val}
                                        type="text" name=""
                                        placeholder="请输入与你要搜索的内容"
                                        onChange={(e) => this.change(e)}/>
-                            </from>
-                        </span>
+                            </form>
+                        </div>
                         <a className="cancel" href="/">取消</a>
                     </div>
                     <ul className={"ul-search limit-5" + (this.state.hide?'':' hide')}>
@@ -59,7 +60,7 @@ class component extends React.Component {
                                 })
                             :null
                         }
-                        <a className="btn btn-delete" href="javascript:;">{this.state.history!=null?"删除历史记录":"暂无历史记录"}</a>
+                        <a className="btn btn-delete" href="javascript:;" onClick={(e) => this.clear(this.state.history)}>{this.state.history!=null?"删除历史记录":"暂无历史记录"}</a>
                     </ul>
                     <ul className={this.state.hide?'hide':''}>
                         {
@@ -86,6 +87,7 @@ class component extends React.Component {
             history = localStorage.getItem("history");
             var e = event || window.event || arguments.callee.caller.arguments[0];
             if (e && e.keyCode == 13) { // enter 键
+                _this.refs.Search.blur();
                 let {val} = _this.state;
                 if(val!=''){
                     page = 1;
@@ -135,6 +137,14 @@ class component extends React.Component {
     }
     componentWillReceiveProps(nextProps) {
 
+    }
+    clear(history){
+        if(history!=null){
+            localStorage.clear();
+        }
+        this.setState({
+            history:null
+        })
     }
     historyClick(obj){
         page = 1;

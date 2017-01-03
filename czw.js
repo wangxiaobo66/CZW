@@ -96,6 +96,7 @@ router.post('/searchList',koaBody,czwController.searchList);//各种list
 router.post('/details',koaBody,czwController.details);//详情页
 router.post('/search',koaBody,czwController.search);//搜索接口
 router.post('/level',koaBody,czwController.level);//获取用户登录状态
+router.post('/register',koaBody,czwController.register);//注册接口
 
 
 app

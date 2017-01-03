@@ -43,6 +43,26 @@ module.exports = {
             result:json
         }
     },
+    //注册接口
+    register:function *(next){
+        var session = randomWord(true,32,64);
+        var data = this.request.body;
+        var url = server + "regist?loginid="+data.user+"&password="+data.password+"&pwd="+data.passwordAgain+"&company="+encodeURIComponent(data.CN)+"&contact="+encodeURIComponent(data.name)+"&tphone="+data.tel+"&mphone="+data.phone+"&email="+data.email+"&msession="+session;
+        console.log(url);
+        var result = yield postFetch(url).then(
+            body => {
+                return body;
+            }
+        ).catch(function(error){
+                console.log(error);
+            }
+        );
+        console.log(result);
+        var json = yield JSON.parse(result);
+        this.body = {
+            result:json
+        }
+    },
     //判断是否超时,获取用户权限,用户等级
     level:function *(next){
         var data = this.request.body;

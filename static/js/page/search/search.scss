@@ -14,7 +14,9 @@
     float: right;
     margin-right: 0.2666666667rem;
   }
-
+  .top-search .search-input{
+    width: 7rem;
+  }
   .ul-search li{
     height: 1.2rem;
     line-height: 1.2rem;
@@ -44,5 +46,8 @@
     text-align:center;
     padding:0.3rem 0;
     margin-bottom: 50px;
+  }
+  form{
+    display: inherit;
   }
 }
