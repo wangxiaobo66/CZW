@@ -69,9 +69,6 @@ class component extends React.Component {
                                 :null
                         }
                     </ul>
-                    <div className="stick solid">
-                        置顶
-                    </div>
                     <Footer />
                 </div>
             </div>
