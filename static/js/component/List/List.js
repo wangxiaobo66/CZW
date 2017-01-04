@@ -27,7 +27,7 @@ export class List extends React.Component {
             <li className="dynamic-list" key={obj.inDate} >
                 <p className="dynamic-list-title" onClick={(e) => this.click(obj)}>{obj.title}</p>
                 <p>
-                        <span className="dynamic-list-addr">{this.state.province != null ? this.state.province[obj.areaId - 1].name : null}</span>
+                        <span className="dynamic-list-addr"><a title={(this.state.province != null ? this.state.province[obj.areaId - 1].name : null)+"招标网"} href="javascript:;">{this.state.province != null ? this.state.province[obj.areaId - 1].name : null}</a></span>
                     {
                         obj.categoryId.map((obj) => {
                             return (

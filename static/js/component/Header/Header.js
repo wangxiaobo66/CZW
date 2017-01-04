@@ -24,9 +24,11 @@ export class Header extends React.Component {
                     <div className="top-search">
                         {
                             hide == true ?
-                                <a href="/index">
-                                    <img className="logo" src="../img/logo.png"/>
-                                </a>
+                                <h1>
+                                    <a href="/index">
+                                        <img className="logo" src="../img/logo.png" alt="采购与招标网"/>
+                                    </a>
+                                </h1>
                                 :null
                         }
                     <span className={"search-container"+(hide == true?"":" search-containers")}>

@@ -117,19 +117,6 @@ class component extends React.Component {
 
                     <Footer />
                 </div>
-                <div className={"ulSearch"+(hide?' hide':'')}>
-                    <ul className="ul-search limit-5">
-                        <li>国家电网</li>
-                        <li>桥梁</li>
-                        <li>机场</li>
-                        <li>大坝</li>
-                        <li>发电厂</li>
-                        <li>发电厂</li>
-                        <li>发电厂</li>
-                        <li>发电厂</li>
-                        <a className="btn btn-delete" href="">删除历史记录</a>
-                    </ul>
-                </div>
             </div>
         )
     }

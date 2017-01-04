@@ -83,7 +83,7 @@ class component extends React.Component {
 
                     <div className="middle-tab">
                         <nav>
-                            <nav className="title">最新招标公告</nav>
+                            <h2><nav className="title">最新招标公告</nav></h2>
                             <div className="tab-lable">
                                 <span className={"bid-tenders" + (this.state.bidTenders?" curr":"")} onClick={(e) => this.click(e,"tenders")}>工程招标</span>
                                 <span className={"bid-goods" + (this.state.bidGoods?" curr":"")} onClick={(e) => this.click(e,"goods")}>货物招标</span>
