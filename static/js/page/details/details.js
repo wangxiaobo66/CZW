@@ -19,6 +19,7 @@ let date = parseInt(new Date().getTime() / 1000);
 
 const { Header } = require('../../component/Header/Header');//头部
 const { Footer } = require('../../component/Footer/Footer');//底部
+const { List } = require('../../component/List/List');//每个list
 
 class component extends React.Component {
     constructor(props) {
@@ -26,11 +27,12 @@ class component extends React.Component {
         this.state = {
             time:date,
             data:null,
-            province: null
+            province: null,
+            list:null
         }
     }
     render() {
-        let {data,province} = this.state;
+        let {data,province,list} = this.state;
         return (
             <div className="module-details">
                 <Header />
@@ -79,41 +81,12 @@ class component extends React.Component {
                         <ul>
                             <h1 className="dynamic-list-title red">相关推荐</h1>
                             {
-                                this.correlationList(data)
+                                list!=null?
+                                    list.map((obj,index)=>{
+                                        return <List obj={obj} index={index}/>
+                                    })
+                                    :null
                             }
-                            <li className="dynamic-list">
-                                <div className="dynamic-list-info">
-                                    <h2 className="dynamic-list-title">北京软件产品质量检测检验中心北京市客户服务</h2>
-                                    <p>
-                                        <span>南京</span>
-                                        <span>工程招标</span>
-                                        <span>采购与招标网</span>
-                                        <span className="dynamic-list-time">2016-11-26</span>
-                                    </p>
-                                </div>
-                            </li>
-                            <li className="dynamic-list">
-                                <div className="dynamic-list-info">
-                                    <h2 className="dynamic-list-title">北京软件产品质量检测检验中心北京市客户服务</h2>
-                                    <p>
-                                        <span>南京</span>
-                                        <span>工程招标</span>
-                                        <span>采购与招标网</span>
-                                        <span className="dynamic-list-time">2016-11-26</span>
-                                    </p>
-                                </div>
-                            </li>
-                            <li className="dynamic-list">
-                                <div className="dynamic-list-info">
-                                    <h2 className="dynamic-list-title">北京软件产品质量检测检验中心北京市客户服务</h2>
-                                    <p>
-                                        <span>南京</span>
-                                        <span>工程招标</span>
-                                        <span>采购与招标网</span>
-                                        <span className="dynamic-list-time">2016-11-26</span>
-                                    </p>
-                                </div>
-                            </li>
                         </ul>
                     </ul>
                     {/*<a className="stick" href="">置顶</a>*/}
@@ -128,7 +101,6 @@ class component extends React.Component {
         //获取用户msession
         //let msession = document.cookie.replace(/(?:(?:^|.*;\s*)msession\s*\=\s*([^;]*).*$)|^.*$/, "$1");
         let msession = sessionStorage.getItem("msession");
-        console.log(msession,'*');
         this.details(id,msession);
         //获取地区列表
         util.getRequest('/province').then(
@@ -141,8 +113,7 @@ class component extends React.Component {
                     }
                 )
             }
-        )
-
+        );
     }
     details(id,msession){
         let info = {id:id,msession:(msession!=null?msession:'')};
@@ -150,10 +121,10 @@ class component extends React.Component {
             data => {
                 data.json().then(
                     json =>{
-                        console.log(json);
                         this.setState({
                             data:json.result
-                        })
+                        });
+                        this.correlationList(json.result)
                     }
                 )
             },
@@ -173,7 +144,20 @@ class component extends React.Component {
         }
     }
     correlationList(data){
-
+        if(data!=null){
+            let info = {val:data.title,tablename1:'',tablename2:'',tablename3:'',area:'',cate:'',time:30,time2:'',page:1,rp:5};
+            util.postRequest('/searchList',info).then(
+                data => {
+                    data.json().then(
+                        json =>{
+                            this.setState({
+                                list: json.result.infos
+                            })
+                        }
+                    )
+                }
+            )
+        }
     }
 }
 function select(state) {

@@ -314,13 +314,20 @@ class component extends React.Component {
                         json =>{
                             if(json.result.id=="001"){
                                 window.toast('注册成功');
-                                window.location.href= "/";
                                 sessionStorage.setItem("msession", json.result.msession);
+                                setTimeout(function(){
+                                    window.location.href= "/";
+                                },1000)
                             }else if(json.result.id=="-1000"){
                                 window.toast('注册成功,请重新登录');
-                                window.location.href= "/login";
+                                setTimeout(function(){
+                                    window.location.href= "/login";
+                                },1000)
                             }else{
-                                window.toast('系统异常,请重新注册')
+                                window.toast('系统异常,请重新注册');
+                                setTimeout(function(){
+                                    window.location.href= "/register";
+                                },1000)
                             }
                         }
                     )

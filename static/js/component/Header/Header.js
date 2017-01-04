@@ -38,7 +38,7 @@ export class Header extends React.Component {
                                 <a className={this.state.msession!=null?level==0? "mine":"login":"login"} href={this.state.msession!=null?level==0? "/mine":"/login":"/login"}>
                                     {
                                         this.state.msession!=null?
-                                            level==0? "我的"
+                                            level=="0"? "我的"
                                                 :"登录/注册"
                                             :"登录/注册"
                                     }
@@ -59,7 +59,7 @@ export class Header extends React.Component {
                     data.json().then(
                         json => {
                             this.setState({
-                                level:json
+                                level:json.login
                             })
                         }
                     )

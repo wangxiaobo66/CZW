@@ -95,8 +95,10 @@ router.post('/login',koaBody,czwController.login);//登录接口
 router.post('/searchList',koaBody,czwController.searchList);//各种list
 router.post('/details',koaBody,czwController.details);//详情页
 router.post('/search',koaBody,czwController.search);//搜索接口
-router.post('/level',koaBody,czwController.level);//获取用户登录状态
+router.post('/level',koaBody,czwController.level);//获取用户登录状态以及权限
 router.post('/register',koaBody,czwController.register);//注册接口
+router.post('/type',koaBody,czwController.type);//单独获取登录状态
+router.post('/status',koaBody,czwController.status);//获取用户名
 
 
 app

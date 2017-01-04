@@ -84,7 +84,9 @@ class component extends React.Component {
                                 window.toast('账号密码有误!');
                             }else{
                                 sessionStorage.setItem("msession", json.result.msession);
-                                window.location.href="/";
+                                setTimeout(function(){
+                                    window.location.href="/";
+                                },1000);
                             }
                         }
                     )
