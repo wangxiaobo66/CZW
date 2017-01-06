@@ -42,7 +42,7 @@ class component extends React.Component {
                 <Header hide={hide} />
                 <div className={"Index"+(hide?'':' hide')}>
                     <div className="nav">
-                        <span>首页</span>
+                        <span><a href="/">首页</a></span>
                     </div>
                     <nav className="details">
                         <a className="quick-entry-link" href="/zbxx">

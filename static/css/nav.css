@@ -14,6 +14,9 @@ input {
 	display: inline-block;
 	padding: 0 0.2666666667rem;
 }
+.nav span a {
+	color: #999;
+}
 /*底部网站导航客服中心电脑版返回首页样式*/
 .footer-nav {
 	color: #999;

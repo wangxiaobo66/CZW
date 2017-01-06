@@ -26,15 +26,21 @@ class component extends React.Component {
             list:null,
             total:null,
             name:null,
-            val:null
+            val:null,
+            nValue:null,
+            vValue:null
         }
     }
 
     render() {
+        let {val,name,nValue,vValue} = this.state;
         return (
             <div className="module-list">
                 <Header />
                 <div className="middle-tab">
+                    <div className="nav">
+                        <span><a href="/">首页</a></span>><span><a href={"/"+(val!=null?val:null)}>{vValue!=null?vValue:null}</a></span>><span><a href={"/"+(val!=null?val:null)+"/"+(name!=null?name:null)}>{nValue!=null?nValue:null}</a></span>
+                    </div>
                     <ul>
                         {
                             this.state.list!=null?
@@ -55,6 +61,8 @@ class component extends React.Component {
         let arr = util.UrlSearch();
         let name = arr[0];
         let val = arr[1];
+        this.stageVal(val);
+        this.stageName(name);
         this.setState({
             name:name,
             val:val
@@ -77,6 +85,138 @@ class component extends React.Component {
     componentWillReceiveProps(nextProps) {
 
     }
+    stageVal(val){
+        switch (val){
+            case 'zbxx':
+                this.setState({
+                    vValue:'招标信息'
+                });
+                break;
+            case 'cgxx':
+                this.setState({
+                    vValue:'采购信息'
+                });
+                break;
+            case 'xmxx':
+                this.setState({
+                    vValue:'项目信息'
+                });
+                break;
+        }
+    }
+    stageName(name){
+        switch (name){
+            //招标
+            case 'zbgg':
+                this.setState({
+                    nValue:'招标公告'
+                });
+                break;
+            case 'bggg':
+                this.setState({
+                    nValue:'变更公告'
+                });
+                break;
+            case 'zbyg':
+                this.setState({
+                    nValue:'招标预告'
+                });
+                break;
+            case 'zbgs':
+                this.setState({
+                    nValue:'中标公示'
+                });
+                break;
+            case 'zhongbyg':
+                this.setState({
+                    nValue:'中标预告'
+                });
+                break;
+            case 'dy':
+                this.setState({
+                    nValue:'答疑'
+                });
+                break;
+            case 'bx':
+                this.setState({
+                    nValue:'比选'
+                });
+                break;
+            case 'zgys':
+                this.setState({
+                    nValue:'资质审核'
+                });
+                break;
+            case 'zgysjg':
+                this.setState({
+                    nValue:'预审结果'
+                });
+                break;
+            //采购
+            case 'zfcg':
+                this.setState({
+                    nValue:'政府采购'
+                });
+                break;
+            case 'qycg':
+                this.setState({
+                    nValue:'企业采购'
+                });
+                break;
+            //项目
+            case 'vipxm':
+                this.setState({
+                    nValue:'VIP项目'
+                });
+                break;
+            case 'xmdt':
+                this.setState({
+                    nValue:'项目动态'
+                });
+                break;
+            case 'xmgz':
+                this.setState({
+                    nValue:'项目跟踪'
+                });
+                break;
+            case 'xmhzpf':
+                this.setState({
+                    nValue:'项目核准'
+                });
+                break;
+            case 'gcsj':
+                this.setState({
+                    nValue:'工程设计'
+                });
+                break;
+            case 'sgzb':
+                this.setState({
+                    nValue:'施工准备'
+                });
+                break;
+            case 'zjjd':
+                this.setState({
+                    nValue:'在建阶段'
+                });
+                break;
+            case 'sphc':
+                this.setState({
+                    nValue:'审批核查'
+                });
+                break;
+            case 'jys':
+                this.setState({
+                    nValue:'建议书阶段'
+                });
+                break;
+            case 'kxx':
+                this.setState({
+                    nValue:'可行性研究'
+                });
+                break;
+        }
+    }
+
     total(){
         if(this.state.total!=null && page*rp<this.state.total){
             return <p className="upData-p" onClick={(e) => this.upData()}>显示更多</p>

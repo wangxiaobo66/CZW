@@ -83,7 +83,8 @@ app.use(xmxx.routes());
 var sa = new Router({
     prefix:'/sa'
 });
-sa.get('/*',routerController.cityList);//地区list
+sa.get('/*_*',routerController.cityList);//地区list
+sa.get('/*',routerController.regionProvince);//省市二级页
 app.use(sa.routes());
 
 

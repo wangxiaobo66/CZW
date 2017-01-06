@@ -52,6 +52,7 @@
     float: left;
     text-align: center;
     margin-bottom: 0.4666666667rem;
+    color:#000;
   }
   .details-item {
     width: 1.2rem;
@@ -62,6 +63,7 @@
     text-align: center;
     display: inline-block;
     margin-bottom: 0.2rem;
+    padding-top:0.1rem;
   }
   .details-item-1 {
     background-color: #07bbf5;
@@ -96,5 +98,8 @@
     font-size: .32rem;
     line-height: 1.3333333333rem;
     padding: 0 0.2666666667rem;
+  }
+  .more a{
+    color:#999;
   }
 }

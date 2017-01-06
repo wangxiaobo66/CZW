@@ -28,25 +28,28 @@ class component extends React.Component {
             time:date,
             data:null,
             province: null,
-            list:null
+            list:null,
+            vValue:null,
+            val:null
         }
     }
     render() {
         let {data,province,list} = this.state;
+        console.log(data);
         return (
             <div className="module-details">
                 <Header />
                 <div className="Unlisted">
                     <div className="nav">
-                        <span>首页</span>><span>招标</span>><span>招标信息</span>
+                        <span><a href="/">首页</a></span>><span><a href={"/"+(this.state.val!=null?this.state.val:null)}>{this.state.vValue!=null?this.state.vValue:null}</a></span>><span>详情</span>
                     </div>
                     <ul className="dynamic nologin">
                         <li className="dynamic-list noline">
                             <h2 className="dynamic-list-title">{data!=null?data.title:null}</h2>
                             <p>
-                                <span>采购与招标网 </span>
+                                <span><a href="/">采购与招标网</a></span>
                                 <span>{data!=null?data.categoryName:null}</span>
-                                <span>{province != null ? data != null  ? province[data.areaId - 1].name : null:null}</span>
+                                <span><a href={"/sa/"+(province != null ? data != null  ? province[data.areaId - 1].value : null:null)}>{province != null ? data != null  ? province[data.areaId - 1].name : null:null}</a></span>
                                 <span className="dynamic-list-time">{data!=null?util.getLocalTime(data.publishDate):''}</span>
                             </p>
                         </li>
@@ -61,13 +64,13 @@ class component extends React.Component {
                         <li className="dynamic-list">
                             <h1 className="dynamic-list-title">基本信息</h1>
                             <div className="dynamic-list-info co-info">
-                                <p><span>招标编码：</span><span className="after-login">{data!=null?data.insideId:null}</span></p>
-                                <p><span>招标编号：</span><span className="after-login">{data!=null?data.no:null}</span></p>
-                                <p><span>开标时间：</span><span className="after-login">{data!=null?data.publishEndDate!=0?util.getLocalTime(data.publishEndDate):'':null}</span></p>
-                                <p><span>标讯类别：</span><span className="after-login">{data!=null?data.classaName:null}</span></p>
-                                <p><span>资金来源：</span><span className="after-login">{data!=null?data.classcName:null}</span></p>
-                                <p><span>招标代理：</span><span className="after-login">{data!=null?data.stringa:null}</span></p>
-                                <p><span>招标人：</span><span className="after-login">{data!=null?data.stringb:null}</span></p>
+                                <p><span>招标编码：</span><span className="after-login">{data!=null?data.insideId!=undefined?data.insideId:'XXXXXXXX':null}</span></p>
+                                <p><span>招标编号：</span><span className="after-login">{data!=null?data.no!=undefined?data.no:'XXXXXXXX':null}</span></p>
+                                <p><span>开标时间：</span><span className="after-login">{data!=null?data.publishEndDate!=undefined?data.publishEndDate!=0?util.getLocalTime(data.publishEndDate):'':'XXXXXXXX':null}</span></p>
+                                <p><span>标讯类别：</span><span className="after-login">{data!=null?data.classaName!=undefined?data.classaName:'XXXXXXXX':null}</span></p>
+                                <p><span>资金来源：</span><span className="after-login">{data!=null?data.classcName!=undefined?data.classcName:'XXXXXXXX':null}</span></p>
+                                <p><span>招标代理：</span><span className="after-login">{data!=null?data.stringa!=undefined?data.stringa:'XXXXXXXX':null}</span></p>
+                                <p><span>招标人：</span><span className="after-login">{data!=null?data.stringb!=undefined?data.stringb:'XXXXXXXX':null}</span></p>
                             </div>
                         </li>
                         <div ref="Content" id="Content" className="Content">
@@ -76,7 +79,11 @@ class component extends React.Component {
                         }
                         </div>
                         <div className="support-info">
-                            免费注册会员可以查看免费信息，了解更多服务内容请进入客服中心，您在适用本网过程中，需要帮助，可以拨打下面的电话。 会员办理咨询免费注册会员可以查看免费信息，了解更多服务内容请进入客服中心，您在适用本网过程中，需要帮助，可以拨打下面的电话。 会员办理咨询
+                            免费注册会员可以查看免费信息，了解更多服务内容请进入客服中心，您在使用本网过程中，需要帮助，可以拨打下面的电话。
+                            会员办理咨询:<a href="tel:400-006-6655">400-006-6655</a>转1。
+                            业务咨询:<a href="tel:400-006-6655">400-006-6655</a>转1。
+                            售后服务:<a href="tel:400-006-6655">400-006-6655</a>转2。
+                            发布信息:<a href="tel:400-006-6655">400-006-6655</a>转3。
                         </div>
                         <ul>
                             <h1 className="dynamic-list-title red">相关推荐</h1>
@@ -114,6 +121,32 @@ class component extends React.Component {
                 )
             }
         );
+        let arr = util.UrlSearch();
+        let val = arr[1];
+        this.setState({
+            val:val
+        });
+        this.stageVal(val);
+
+    }
+    stageVal(val){
+        switch (val){
+            case 'zbxx':
+                this.setState({
+                    vValue:'招标信息'
+                });
+                break;
+            case 'cgxx':
+                this.setState({
+                    vValue:'采购信息'
+                });
+                break;
+            case 'xmxx':
+                this.setState({
+                    vValue:'项目信息'
+                });
+                break;
+        }
     }
     details(id,msession){
         let info = {id:id,msession:(msession!=null?msession:'')};

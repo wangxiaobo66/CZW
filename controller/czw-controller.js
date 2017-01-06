@@ -164,6 +164,13 @@ module.exports = {
         var json = yield JSON.parse(result);
         if (data.msession==""){//未登录状态
             delete json.description;
+            delete json.insideId;
+            delete json.no;
+            delete json.publishEndDate;
+            delete json.classaName;
+            delete json.classcName;
+            delete json.stringa;
+            delete json.stringb;
         }else{//已登录有msession
             //判断是否超时,获取用户权限,用户等级
             var url = server + "getMsession?msession="+ data.msession;
@@ -179,10 +186,24 @@ module.exports = {
                 switch (levelJson.CUST_RIGHT_GROUP){
                     case '0':
                         delete json.description;
+                        delete json.insideId;
+                        delete json.no;
+                        delete json.publishEndDate;
+                        delete json.classaName;
+                        delete json.classcName;
+                        delete json.stringa;
+                        delete json.stringb;
                         break;
                     case '1':
                         if(josn.tableName=='3010'||josn.tableName=='3020'||josn.tableName=='3030'||josn.tableName=='3040'||josn.tableName=='3060'||josn.tableName=='3070'||josn.tableName=='3080'){
                             delete json.description;
+                            delete json.insideId;
+                            delete json.no;
+                            delete json.publishEndDate;
+                            delete json.classaName;
+                            delete json.classcName;
+                            delete json.stringa;
+                            delete json.stringb;
                         }
                         break;
                     case '2':
@@ -192,6 +213,13 @@ module.exports = {
                 }
             }else {
                 delete json.description;
+                delete json.insideId;
+                delete json.no;
+                delete json.publishEndDate;
+                delete json.classaName;
+                delete json.classcName;
+                delete json.stringa;
+                delete json.stringb;
             }
         }
         this.body = {

@@ -35,7 +35,7 @@ class component extends React.Component {
                 <Header />
                 <div className="Projcet">
                     <div className="nav">
-                        <span>首页</span>><span>项目</span>
+                        <span><a href="/">首页</a></span>><span><a href="/xmxx">项目</a></span>
                     </div>
                     <nav className="details">
                         <a className="quick-entry-link" href="/xmxx/vipxm">

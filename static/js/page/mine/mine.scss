@@ -67,7 +67,9 @@
     line-height: 1.3333333333rem;
     border-bottom: 1px solid #dcdcdc;
   }
-
+  .lists span{
+    color:#999;
+  }
   .icon {
     vertical-align: middle;
     width: 0.5333333333rem;
@@ -83,9 +85,20 @@
     color: #fff;
     background-color: #ff3333;
     border: none;
-    margin: 4.1333333333rem 0.2666666667rem 0.8rem .2666666667rem;
+    margin: 1.1333333333rem 0.2666666667rem 0.8rem .2666666667rem;
   }
-
+  .btn-login {
+    float: left;
+    line-height: 1.2rem;
+    width: 9.4666666667rem;
+    font-size: 0.3733333333rem;
+    text-align: center;
+    border-radius: 0.0666666667rem;
+    color: #ff3333;
+    background-color: #fff;
+    margin: 0rem 0.2666666667rem 0.8rem .2666666667rem;
+    border:1px solid #ff3333;
+  }
 
   .lists>span {
     float: right;

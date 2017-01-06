@@ -35,7 +35,7 @@ class component extends React.Component {
                 <Header />
                 <div className="contaner">
                     <div className="nav">
-                        <span>首页</span>><span>采购</span>
+                        <span><a href="/">首页</a></span>><span><a href="/cgxx">采购</a></span>
                     </div>
                     <ul className="dynamic">
                         <h2>

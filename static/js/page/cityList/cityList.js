@@ -26,14 +26,27 @@ class component extends React.Component {
             area:null,
             val:null,
             list:null,
-            total:null
+            total:null,
+            tablename1:'',
+            tablename2:'',
+            tablename3:'',
+            tablenameone:'',
+            tablenametwo:'',
+            name:null,
+            value:null
         }
     }
     render() {
+        console.log(this.state.name);
         return (
+
             <div className="module-list">
                 <Header />
+
                 <ul className="middle-tab">
+                    <div className="nav">
+                        <span><a href="/">首页</a></span>><span><a href="/sa">地区站</a></span>><span><a href={"/sa/"+(this.state.name!=null?this.state.name[0]:null)}>{this.state.val!=null?this.state.val:null}</a></span>><span><a href={"/sa/"+(this.state.name!=null?this.state.name[0]:null)+"_"+(this.state.name!=null?this.state.name[1]:null)}>{(this.state.val!=null?this.state.val:null)+(this.state.value!=null?this.state.value:null)}</a></span>
+                    </div>
                     {
                         this.state.list!=null?
                             this.state.list.map((obj,index) => {
@@ -50,7 +63,8 @@ class component extends React.Component {
     }
     componentDidMount() {
         let arr = util.UrlSearch();
-        let name = arr[0];
+        let city = arr[0];
+        let name = city.split('_');
         util.getRequest('/city').then(
             data => {
                 data.json().then(
@@ -73,34 +87,113 @@ class component extends React.Component {
         }
     }
     upData(){
-        let {val,area} = this.state;
+        let {val,area,tablename1,tablename2,tablename3,tablenameone,tablenametwo} = this.state;
         page = page + 1;
-        let info = {val:val,tablename1:'',tablename2:'',tablename3:'',area:area,cate:'',time:30,time2:'',page:page,rp:rp};
+        let info = {val:val,tablename1:tablename1,tablename2:tablename2,tablename3:tablename3,tablenameone:tablenameone,tablenametwo:tablenametwo,area:area,cate:'',time:30,time2:'',page:page,rp:rp};
         this.post(info)
     }
     list(name,city){
-        console.log(city);
             city.map((obj,index) => {
                 obj.city.map((itm,i) => {
-                    if(itm.value == name){
-                        let  area=index+1,val = itm.name;
+                    if(itm.value == name[0]){
+                        let  area=index+1,val = itm.name,tablename1='',tablename2='',tablename3='',tablenameone='',tablenametwo='';
+                        switch (name[1]){
+                            case 'zbxx':
+                                tablename1=1;
+                                tablename2=2;
+                                tablename3=3;
+                                this.setState({
+                                    value:"招标信息"
+                                });
+                                break;
+                            case 'zbgg':
+                                tablename1=1;
+                                tablename2=2;
+                                tablename3=3;
+                                this.setState({
+                                    value:"招标公告"
+                                });
+                                break;
+                            case 'zbgs':
+                                tablename1=5;
+                                this.setState({
+                                    value:"中标公示"
+                                });
+                                break;
+                            case 'cgxx':
+                                tablename1=6;
+                                tablename2=7;
+                                this.setState({
+                                    value:"采购信息"
+                                });
+                                break;
+                            case 'vipxm':
+                                tablenameone='3000';
+                                tablenametwo='3030';
+                                this.setState({
+                                    value:"VIP项目"
+                                });
+                                break;
+                        }
                         this.setState({
                             val:val,
-                            area:area
+                            name:name,
+                            area:area,
+                            tablename1:tablename1,
+                            tablename2:tablename2,
+                            tablename3:tablename3,
+                            tablenameone:tablenameone,
+                            tablenametwo:tablenametwo
                         });
                         //请求list
-                        let info = {val:val,tablename1:'',tablename2:'',tablename3:'',area:area,cate:'',time:30,time2:'',page:page,rp:rp};
+                        let info = {val:val,tablename1:tablename1,tablename2:tablename2,tablename3:tablename3,tablenameone:tablenameone,tablenametwo:tablenametwo,area:area,cate:'',time:30,time2:'',page:page,rp:rp};
                         this.post(info)
                     }
                 })
             })
     }
     post(info){
+        let {list} = this.state;
+        if (list==null){
+            util.postRequest('/searchList',info).then(
+                data => {
+                    data.json().then(
+                        json =>{
+                            this.setState({
+                                list: json.result.infos,
+                                total:json.result.total
+                            })
+                        }
+                    )
+                },
+                error => {
+                    console.log("error");
+                }
+            )
+        }else{
+            util.postRequest('/searchList',info).then(
+                data => {
+                    data.json().then(
+                        json =>{
+                            list = list.concat(json.result.infos);
+                            this.setState({
+                                list: list,
+                                total:json.result.total
+                            })
+                        }
+                    )
+                },
+                error => {
+                    console.log("error");
+                }
+            )
+        }
+        /*
         util.postRequest('/searchList',info).then(
             data => {
                 data.json().then(
                     json =>{
-                        let {list} = this.state;
+
                         if (list==null){
                             this.setState({
                                 list: json.result.infos
@@ -121,6 +214,7 @@ class component extends React.Component {
                 console.log("error");
             }
         );
+        */
     }
 }
 function select(state) {

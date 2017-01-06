@@ -46,6 +46,9 @@
   .dynamic-list.noline {
     border-width: 0;
   }
+  .noline a{
+    color:#999;
+  }
   .dynamic-list .micro {
     padding: 0.04rem 0.0666666667rem;
     margin-right: 0.2666666667rem;
@@ -86,6 +89,9 @@
     line-height: 1.5;
     padding: 0.3333333333rem 0.2666666667rem;
     color: #999;
+  }
+  .support-info a {
+    color:#ff3333;
   }
   .dynamic-list-title.red {
     color: #ff3333;

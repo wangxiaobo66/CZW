@@ -32,13 +32,13 @@ class component extends React.Component {
             <div className="module-login">
                 <Header />
                 <div className="Login">
-                    <div className="nav"><span>首页</span>><span>登录</span></div>
+                    <div className="nav"><span><a href="/">首页</a></span>><span><a href="/login">登录</a></span></div>
                     <div className="content">
                         <p className="title">用户名</p>
                         <input className="input-full" type="text" value={this.state.text} placeholder="请输入您的用户名" onChange={(e) => this.change(e,"text")}/>
                         <p className="title">密码</p>
                         <input className="input-full" type="password" value={this.state.password} placeholder="请输入您的密码" onChange={(e) => this.change(e,"password")}/>
-                        <p className="forget cl"><a href="tel:400-006-6655">忘记密码?</a></p>
+                        <p className="forget cl"><a href="tel:400-006-6655">忘记密码?请点击拨打电话联系客服</a></p>
                         <a className="btn btn-login" onClick={(e) => this.click(e)}>登录</a>
                         <a href="/register" className="btn btn-register">立即注册</a>
                     </div>

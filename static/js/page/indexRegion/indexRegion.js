@@ -34,7 +34,7 @@ class component extends React.Component {
                 <Header />
                 <div className="Region">
                     <div className="nav">
-                        <span>首页</span>><span>地区站</span>
+                        <span><a href="/">首页</a></span>><span><a href="/sa">地区站</a></span>
                     </div>
                     <ul className="dynamic">
                         <li>

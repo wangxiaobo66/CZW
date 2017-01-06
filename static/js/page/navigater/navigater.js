@@ -33,7 +33,7 @@ class component extends React.Component {
                 <Header />
                 <div className="Navigater">
                     <div className="nav">
-                        <span>首页</span>><span>网站导航</span>
+                        <span><a href="/">首页</a></span>><span><a href="/navigater">网站导航</a></span>
                     </div>
                     <h1 className="nav-bid"><div className="icon-contaner"><span className="iconfont icon-9"></span></div>招标</h1>
                     <ul className="list-row-5">

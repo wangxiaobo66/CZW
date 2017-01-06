@@ -36,7 +36,7 @@ class component extends React.Component {
                 <Header />
                 <div className="Mine cl">
                     <div className="nav">
-                        <span>首页</span>><span>我的</span>
+                        <span><a href="/">首页</a></span>><span><a href="/mine">我的</a></span>
                     </div>
 
                     <div className="content">
@@ -51,9 +51,11 @@ class component extends React.Component {
 
                     <p className="lists"><img className="icon star" src="../img/star.png"/>我的收藏<img className="arrow"
                                                                                                     src="../img/right-arrow.png"/>
+                        <span>(点击跳转到APP应用市场)</span>
                     </p>
                     <p className="lists"><img className="icon eye" src="../img/eye.png"/>我的浏览<img className="arrow"
                                                                                                   src="../img/right-arrow.png"/>
+                        <span>(点击跳转到APP应用市场)</span>
                     </p>
                     <p className="lists"><img className="icon phone" src="../img/phone.png"/>客服专线<img className="arrow"
                                                                                                       src="../img/right-arrow.png"/><a
@@ -61,11 +63,11 @@ class component extends React.Component {
                     {
                         CUST_RIGHT_GROUP!=null?
                             CUST_RIGHT_GROUP == "0"?
-                                <a className="btn btn-register" href="">立即开通</a>
+                                <a className="btn btn-register" href="javascript">立即开通</a>
                                 :null
                             :null
                     }
-
+                    <a className="btn btn-login" onClick={(e) => this.exit()}>退出登陆</a>
                 </div>
             </div>
         )
@@ -90,14 +92,13 @@ class component extends React.Component {
         return describe
     }
     componentDidMount() {
-        let id = sessionStorage.getItem("id");
         let msession = sessionStorage.getItem("msession");
-        if(msession==null||id==null){
+        if(msession==null){
             window.toast('请登录');
             setTimeout(function(){
                 window.location.href="/login"
             },1000)
-        }else if(msession!=null&&id!=null){
+        }else if(msession!=null){
             let info = {msession:msession};
             util.postRequest('/type',info).then(
                 data => {
@@ -124,6 +125,10 @@ class component extends React.Component {
 
     componentWillReceiveProps(nextProps) {
 
+    }
+    exit(){
+        sessionStorage.removeItem("msession");
+        window.location.href='/';
     }
 }
 function select(state) {
