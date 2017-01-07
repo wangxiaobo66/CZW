@@ -6,6 +6,9 @@ const util = require('../../app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
 
+const DocMeta = require('react-doc-meta');//meta
+const DocumentTitle = require('react-document-title');//title
+
 const { Provider, connect } = require('react-redux');
 const { createStore, applyMiddleware } = require('redux');
 const thunk = require('redux-thunk').default;
@@ -33,8 +36,14 @@ class component extends React.Component {
     }
     render() {
         let {name,val,listZb,listCg,NAME}=this.state;
+        let tags = [
+            {name: "keywords", content: val+"招标网,"+val+"政府采购,"+val+"采购与招标网"},
+            {name: "description", content: "【"+val+"招标网】是最全最新广西招标采购中心提供了广西招标公告,"+val+"政府采购,建设工程招标及拟在建项目信息,更多"+val+"招标网,政府采购信息请关注"+val+"采购与招标网."}
+        ];
         return (
             <div className="module-regionProvince">
+                <DocumentTitle title={val+"招标网_"+val+"采购_"+val+"采购与招标网"}/>
+                <DocMeta tags={tags} />
                 <Header />
                 <div className="Province">
                     <div className="nav">

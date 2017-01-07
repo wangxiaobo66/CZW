@@ -50,6 +50,9 @@ zbxx.get('/dy',routerController.list);//答疑
 zbxx.get('/bx',routerController.list);//比选
 zbxx.get('/zgys',routerController.list);//资格预审
 zbxx.get('/zgysjg',routerController.list);//预审结果
+zbxx.get('/gczb',routerController.list);//工程招标
+zbxx.get('/fwzb',routerController.list);//服务招标
+zbxx.get('/hwzb',routerController.list);//货物招标
 //招标详情
 zbxx.get('/*',routerController.details);////招标详情页
 app.use(zbxx.routes());

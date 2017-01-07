@@ -5,6 +5,9 @@ require('./list.scss');
 const util = require('../../app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
+//const DocumentMeta = require('react-document-meta');
+const DocMeta = require('react-doc-meta');//meta
+const DocumentTitle = require('react-document-title');//title
 
 const { Provider, connect } = require('react-redux');
 const { createStore, applyMiddleware } = require('redux');
@@ -34,8 +37,19 @@ class component extends React.Component {
 
     render() {
         let {val,name,nValue,vValue} = this.state;
+        let tags = [
+            {name: "keywords", content:nValue+","+nValue+"网"},
+
+            {name: "description", content: (val=="zbxx"?nValue+"频道为您提供全面的"+nValue+"相关信息,工程建设招标,工程项目招标,装饰招标,绿化招标,建筑设计招标,采购公告,拟建项目等信息!更多相关资讯,详询采购与招标网.":
+                                                val=="cgxx"?nValue+"频道为您提供全面的"+nValue+"相关信息,2016年政府采购动态,现状,"+nValue+"项目,订单,资金,政策,流程等!更多相关资讯,详询采购与招标网.":
+                                                    val=="xmxx"?"采购与招标网是权威的中国招投标门户网站,国内领先的建设项目信息服务,为企业提供"+nValue+",项目报告,国外商机,项目动态,项目追踪服务及专业招标、采购、拟在建项目信息.":
+                                                        null)}
+        ];
+
         return (
             <div className="module-list">
+                <DocumentTitle title={val!="xmxx"?nValue+"_"+nValue+"网":nValue}/>
+                <DocMeta tags={tags} />
                 <Header />
                 <div className="middle-tab">
                     <div className="nav">
@@ -150,6 +164,21 @@ class component extends React.Component {
             case 'zgysjg':
                 this.setState({
                     nValue:'预审结果'
+                });
+                break;
+            case 'gczb':
+                this.setState({
+                    nValue:'工程招标'
+                });
+                break;
+            case 'hwzb':
+                this.setState({
+                    nValue:'货物招标'
+                });
+                break;
+            case 'fwzb':
+                this.setState({
+                    nValue:'服务招标'
                 });
                 break;
             //采购
@@ -273,6 +302,15 @@ class component extends React.Component {
                 break;
             case 'zgysjg':
                 info = {val:'预审结果',tablename1:1,tablename2:2,tablename3:3,area:'',cate:'',time:30,time2:'',page:page,rp:rp};
+                break;
+            case 'gczb':
+                info = {val:'',tablename1:1,tablename2:'',tablename3:'',area:'',cate:'',time:30,time2:'',page:page,rp:rp};
+                break;
+            case 'hwzb':
+                info = {val:'',tablename1:2,tablename2:'',tablename3:'',area:'',cate:'',time:30,time2:'',page:page,rp:rp};
+                break;
+            case 'fwzb':
+                info = {val:'',tablename1:3,tablename2:'',tablename3:'',area:'',cate:'',time:30,time2:'',page:page,rp:rp};
                 break;
         }
         //发送请求

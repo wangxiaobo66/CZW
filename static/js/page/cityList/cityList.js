@@ -5,6 +5,8 @@ require('./cityList.scss');
 const util = require('../../app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
+const DocMeta = require('react-doc-meta');//meta
+const DocumentTitle = require('react-document-title');//title
 
 const { Provider, connect } = require('react-redux');
 const { createStore, applyMiddleware } = require('redux');
@@ -37,12 +39,34 @@ class component extends React.Component {
         }
     }
     render() {
-        console.log(this.state.name);
+        let {val,name} = this.state;
+        let tags = [
+            {name:"keywords",content:(name!=null?name[1]==("zbxx"||"zbgg")?(val+"招标公告"):
+                                            name[1]=="zbgs"?(val+"中标公示"):
+                                                name[1]=="cgxx"?(val+"政府采购中心"):
+                                                    name[1]=="vipxm"?(val+"VIP项目"):
+                                                        null:
+                                                        null
+            )},
+            {name:"description",content:(name!=null?name[1]==("zbxx"||"zbgg")?(val+"【"+val+"招标公告】是采购与招标网旗下栏目,"+val+"采购与招标网提供了"+val+"招标公告,"+val+"政府采购,建设工程招标及拟在建项目信息,更多招投标,政府采购信息请关注"+val+"采购与招标网."):
+                                                name[1]=="zbgs"?(val+"中标公示为您提供"+val+"政府采购公告,"+val+"企业采购,政府采购规定,需求报告,招标合同等"+val+"政府采购信息,更多"+val+"招标网政府采购信息请关注"+val+"采购与招标网."):
+                                                    name[1]=="cgxx"?(val+"政府采购中心为您提供"+val+"政府采购公告,"+val+"企业采购,政府采购规定,需求报告,招标合同等"+val+"政府采购信息,更多"+val+"招标网政府采购信息请关注"+val+"采购与招标网."):
+                                                        name[1]=="vipxm"?(val+"VIP项目为您提供"+val+"政府采购公告,"+val+"企业采购,政府采购规定,需求报告,招标合同等"+val+"政府采购信息,更多"+val+"招标网政府采购信息请关注"+val+"采购与招标网."):
+                                                            null:
+                                                            null
+            )}
+        ];
         return (
-
             <div className="module-list">
+                <DocumentTitle title={name!=null?name[1]==("zbxx"||"zbgg")?(val+"招标公告_"+val+"采购与招标网"):
+                                           name[1]=="zbgs"?(val+"中标公示_"+val+"采购与招标网"):
+                                                name[1]=="cgxx"?(val+"政府采购中心_"+val+"采购与招标网"):
+                                                     name[1]=="vipxm"?(val+"VIP项目_"+val+"采购与招标网"):
+                                                        null:
+                                                        null
+                                        }/>
+                <DocMeta tags={tags} />
                 <Header />
-
                 <ul className="middle-tab">
                     <div className="nav">
                         <span><a href="/">首页</a></span>><span><a href="/sa">地区站</a></span>><span><a href={"/sa/"+(this.state.name!=null?this.state.name[0]:null)}>{this.state.val!=null?this.state.val:null}</a></span>><span><a href={"/sa/"+(this.state.name!=null?this.state.name[0]:null)+"_"+(this.state.name!=null?this.state.name[1]:null)}>{(this.state.val!=null?this.state.val:null)+(this.state.value!=null?this.state.value:null)}</a></span>

@@ -78,6 +78,19 @@ class component extends React.Component {
                             <p className="details-item details-item-9"><span className="iconfont icon-21"></span></p>
                             <p>预审结果</p>
                         </a>
+
+                        <a className="quick-entry-link" href="/zbxx/gczb">
+                            <p className="details-item details-item-1"><span className="iconfont icon-32"></span></p>
+                            <p>工程招标</p>
+                        </a>
+                        <a className="quick-entry-link" href="/zbxx/hwzb">
+                            <p className="details-item details-item-2"><span className="iconfont icon-6"></span></p>
+                            <p>货物招标</p>
+                        </a>
+                        <a className="quick-entry-link" href="/zbxx/fwzb">
+                            <p className="details-item details-item-3"><span className="iconfont icon-25"></span></p>
+                            <p>服务招标</p>
+                        </a>
                     </div>
 
 
