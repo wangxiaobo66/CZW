@@ -25,7 +25,7 @@ export class Header extends React.Component {
                         {
                             hide == true ?
                                 <h1>
-                                    <a href="/index">
+                                    <a href={(util.http())+"/"}>
                                         <img className="logo" src="../img/logo.png" alt="采购与招标网"/>
                                     </a>
                                 </h1>
@@ -33,11 +33,11 @@ export class Header extends React.Component {
                         }
                     <span className={"search-container"+(hide == true?"":" search-containers")}>
                         <a className="serch-btn" href="javascript:;"><img src="../img/search.png"/></a>
-                        <a href="/search"><input className="search-input" type="text" placeholder="请输入你要搜索的内容" onClick ={(e) => this.click('search')}/></a>
+                        <a href={(util.http())+"/search"}><input className="search-input" type="text" placeholder="请输入你要搜索的内容" onClick ={(e) => this.click('search')}/></a>
                     </span>
                         {
                             hide == true ?
-                                <a className={this.state.msession!=null?level==0? "mine":"login":"login"} href={this.state.msession!=null?level==0? "/mine":"/login":"/login"}>
+                                <a className={this.state.msession!=null?level==0? "mine":"login":"login"} href={this.state.msession!=null?level==0? ((util.http())+"/mine"):((util.http())+"/login"):((util.http())+"/login")}>
                                     {
                                         this.state.msession!=null?
                                             level=="0"? "我的"

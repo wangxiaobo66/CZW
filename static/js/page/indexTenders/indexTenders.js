@@ -38,56 +38,56 @@ class component extends React.Component {
                 <Header />
                 <div className="Bid">
                     <div className="nav">
-                        <span><a href="/">首页</a></span>><span>招标</span>
+                        <span><a href={(util.http())+"/"}>首页</a></span>><span><a href={(util.http())+"/zbxx"}>招标</a></span>
                     </div>
 
                     <div className="topnav cl">
-                        <a className="quick-entry-link" href="/zbxx/zbgg">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx/zbgg"}>
                             <p className="details-item details-item-1"><span className="iconfont icon-9"></span></p>
                             <p>招标公告</p>
                         </a>
-                        <a className="quick-entry-link" href="/zbxx/bggg">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx/bggg"}>
                             <p className="details-item details-item-2"><span className="iconfont icon-31"></span></p>
                             <p>变更公告</p>
                         </a>
-                        <a className="quick-entry-link" href="/zbxx/zbyg">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx/zbyg"}>
                             <p className="details-item details-item-3"><span className="iconfont icon-1"></span></p>
                             <p>招标预告</p>
                         </a>
-                        <a className="quick-entry-link" href="/zbxx/zbgs">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx/zbgs"}>
                             <p className="details-item details-item-4"><span className="iconfont icon-23"></span></p>
                             <p>中标公示</p>
                         </a>
-                        <a className="quick-entry-link" href="/zbxx/zhongbyg">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx/zhongbyg"}>
                             <p className="details-item details-item-5"><span className="iconfont icon-25"></span></p>
                             <p>中标公告</p>
                         </a>
-                        <a className="quick-entry-link" href="/zbxx/dy">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx/dy"}>
                             <p className="details-item details-item-6"><span className="iconfont icon-24"></span></p>
                             <p>答疑</p>
                         </a>
-                        <a className="quick-entry-link" href="/zbxx/bx">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx/bx"}>
                             <p className="details-item details-item-7"><span className="iconfont icon-22"></span></p>
                             <p>比选</p>
                         </a>
-                        <a className="quick-entry-link" href="/zbxx/zgys">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx/zgys"}>
                             <p className="details-item details-item-8"><span className="iconfont icon-20"></span></p>
                             <p>资格预审</p>
                         </a>
-                        <a className="quick-entry-link" href="/zbxx/zgysjg">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx/zgysjg"}>
                             <p className="details-item details-item-9"><span className="iconfont icon-21"></span></p>
                             <p>预审结果</p>
                         </a>
 
-                        <a className="quick-entry-link" href="/zbxx/gczb">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx/gczb"}>
                             <p className="details-item details-item-1"><span className="iconfont icon-32"></span></p>
                             <p>工程招标</p>
                         </a>
-                        <a className="quick-entry-link" href="/zbxx/hwzb">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx/hwzb"}>
                             <p className="details-item details-item-2"><span className="iconfont icon-6"></span></p>
                             <p>货物招标</p>
                         </a>
-                        <a className="quick-entry-link" href="/zbxx/fwzb">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx/fwzb"}>
                             <p className="details-item details-item-3"><span className="iconfont icon-25"></span></p>
                             <p>服务招标</p>
                         </a>

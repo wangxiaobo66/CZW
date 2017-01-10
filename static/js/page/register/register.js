@@ -46,7 +46,7 @@ class component extends React.Component {
                 <Header />
                 <div className="Register">
                     <div className="nav">
-                        <span><a href="/">首页</a></span>><span><a href="/register">注册</a></span>
+                        <span><a href={(util.http())+"/"}>首页</a></span>><span><a href={(util.http())+"/register"}>注册</a></span>
                     </div>
 
                     <ul>

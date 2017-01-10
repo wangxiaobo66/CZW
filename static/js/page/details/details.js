@@ -11,6 +11,9 @@ const { createStore, applyMiddleware } = require('redux');
 const thunk = require('redux-thunk').default;
 const { CZW } = require('../../redux/reducers');
 
+const DocMeta = require('react-doc-meta');//meta
+const DocumentTitle = require('react-document-title');//title
+
 let store = createStore(CZW, applyMiddleware(thunk));
 
 let {} = require('./actions.js');//从actions中拿到方法
@@ -21,7 +24,7 @@ const { Header } = require('../../component/Header/Header');//头部
 const { Footer } = require('../../component/Footer/Footer');//底部
 const { List } = require('../../component/List/List');//每个list
 
-class component extends React.Component {
+class Detail extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -35,28 +38,33 @@ class component extends React.Component {
     }
     render() {
         let {data,province,list} = this.state;
-        console.log(data);
+        let tags = [
+            {name: "keywords", content: data!=null?data.title:null},
+            {name: "description", content: (data!=null?data.title:null)+",招标信息,招标,采购详情请咨询采购与招标网"}
+        ];
         return (
             <div className="module-details">
+                <DocumentTitle title={(data!=null?data.title:null)+"_采购与招标网"}/>
+                <DocMeta tags={tags} />
                 <Header />
                 <div className="Unlisted">
                     <div className="nav">
-                        <span><a href="/">首页</a></span>><span><a href={"/"+(this.state.val!=null?this.state.val:null)}>{this.state.vValue!=null?this.state.vValue:null}</a></span>><span>详情</span>
+                        <span><a href={(util.http())+"/"}>首页</a></span>><span><a href={(util.http())+"/"+(this.state.val!=null?this.state.val:null)}>{this.state.vValue!=null?this.state.vValue:null}</a></span>><span>详情</span>
                     </div>
                     <ul className="dynamic nologin">
                         <li className="dynamic-list noline">
                             <h2 className="dynamic-list-title">{data!=null?data.title:null}</h2>
                             <p>
-                                <span><a href="/">采购与招标网</a></span>
+                                <span><a href={(util.http())+"/"}>采购与招标网</a></span>
                                 <span>{data!=null?data.categoryName:null}</span>
-                                <span><a href={"/sa/"+(province != null ? data != null  ? province[data.areaId - 1].value : null:null)}>{province != null ? data != null  ? province[data.areaId - 1].name : null:null}</a></span>
+                                <span><a href={(util.http())+"/sa/"+(province != null ? data != null  ? province[data.areaId - 1].value : null:null)}>{province != null ? data != null  ? province[data.areaId - 1].name : null:null}</a></span>
                                 <span className="dynamic-list-time">{data!=null?util.getLocalTime(data.publishDate):''}</span>
                             </p>
                         </li>
                         {
                             data!=null?data.msession==''?
                                 <div className="nologin-tip">
-                                    以下内容，仅对会员开放，如需查看详细内容，请先<a href="/register"> 注册 </a>成为会员，已注册的会员请<a href="/login"> 登陆 </a>后查看。
+                                    以下内容，仅对会员开放，如需查看详细内容，请先<a href={(util.http())+"/register"}> 注册 </a>成为会员，已注册的会员请<a href={(util.http())+"/login"}> 登陆 </a>后查看。
                                 </div>
                                 :null
                                 :null
@@ -80,10 +88,10 @@ class component extends React.Component {
                         </div>
                         <div className="support-info">
                             免费注册会员可以查看免费信息，了解更多服务内容请进入客服中心，您在使用本网过程中，需要帮助，可以拨打下面的电话。
-                            会员办理咨询:<a href="tel:400-006-6655">400-006-6655</a>转1。
-                            业务咨询:<a href="tel:400-006-6655">400-006-6655</a>转1。
-                            售后服务:<a href="tel:400-006-6655">400-006-6655</a>转2。
-                            发布信息:<a href="tel:400-006-6655">400-006-6655</a>转3。
+                            <p>会员办理咨询:<a href="tel:400-006-6655">400-006-6655</a>转1。</p>
+                            <p>业务咨询:<a href="tel:400-006-6655">400-006-6655</a>转1。</p>
+                            <p>售后服务:<a href="tel:400-006-6655">400-006-6655</a>转2。</p>
+                            <p>发布信息:<a href="tel:400-006-6655">400-006-6655</a>转3。</p>
                         </div>
                         <ul>
                             <h1 className="dynamic-list-title red">相关推荐</h1>
@@ -193,11 +201,14 @@ class component extends React.Component {
         }
     }
 }
+
+//let component = React.renderToStaticMarkup(Detail);
+
 function select(state) {
     return {
     }
 }
-let Details = connect(select)(component);
+let Details = connect(select)(Detail);
 
 render(
     <Provider store={store}>

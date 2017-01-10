@@ -206,5 +206,10 @@ module.exports = {
             }
         }
         return res;
+    },
+    //配置hhttp
+    http: function(){
+        //return "http://139.198.5.38:10001";
+        return "";
     }
 };

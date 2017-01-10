@@ -10,7 +10,8 @@ var routerController = require('./controller/router-controller');
 var koaBody = require('koa-body')();
 var path = require('path');
 var staticCache = require('koa-static-cache');//静态文件
-
+//var http = "http://139.198.5.38:10001";
+var http = "";
 //基础页面
 router.get('/index',routerController.index);//首页
 router.get('/index-tenders',routerController.indexTenders);//首页-招标
@@ -22,24 +23,24 @@ router.get('/region-city',routerController.regionCity);//市级项目
 router.get('/gov-procurement',routerController.govProcurement);//政府采购
 router.get('/co-procurement',routerController.coProcurement);//企业采购
 router.get('/mine',routerController.mine);//我的
-router.get('/login',routerController.login);//登录
+router.get(http+'/login',routerController.login);//登录
 router.get('/forget',routerController.forget);//忘记密码
-router.get('/register',routerController.register);//注册
+router.get(http+'/register',routerController.register);//注册
 router.get('/navigater',routerController.navigater);//四个导航
 router.get('/list',routerController.list);//公用信息list
 router.get('/cityList',routerController.cityList)//公用地区信息list
 router.get('/details',routerController.details);//公用详情
-router.get('/search',routerController.search);//搜索页面
+router.get(http+'/search',routerController.search);//搜索页面
 //具体分级
-router.get('/',routerController.index);//首页
+router.get(http+'/',routerController.index);//首页
 //二级分页
-router.get('/zbxx',routerController.indexTenders);//招标信息首页
-router.get('/cgxx',routerController.indexProcurement);//采购信息首页
-router.get('/xmxx',routerController.indexProject);//项目信息
-router.get('/sa',routerController.indexRegion);//地区首页
+router.get(http+'/zbxx',routerController.indexTenders);//招标信息首页
+router.get(http+'/cgxx',routerController.indexProcurement);//采购信息首页
+router.get(http+'/xmxx',routerController.indexProject);//项目信息
+router.get(http+'/sa',routerController.indexRegion);//地区首页
 //招标信息三级
 var zbxx = new Router({
-    prefix: '/zbxx'
+    prefix: http+'/zbxx'
 });
 zbxx.get('/zbgg',routerController.list);//招标公告
 zbxx.get('/bggg',routerController.list);//变更公告
@@ -58,7 +59,7 @@ zbxx.get('/*',routerController.details);////招标详情页
 app.use(zbxx.routes());
 //采购信息三级
 var cgxx = new Router({
-    prefix: '/cgxx'
+    prefix: http+'/cgxx'
 });
 cgxx.get('/zfcg',routerController.list);//政府采购
 cgxx.get('/qycg',routerController.list);//企业采购
@@ -67,7 +68,7 @@ cgxx.get('/*',routerController.details);////采购详情页
 app.use(cgxx.routes());
 //项目信息三级
 var xmxx = new Router({
-    prefix: '/xmxx'
+    prefix: http+'/xmxx'
 });
 xmxx.get('/vipxm',routerController.list);//vip项目
 xmxx.get('/xmdt',routerController.list);//项目动态
@@ -84,7 +85,7 @@ xmxx.get('/*',routerController.details);//项目详情页
 app.use(xmxx.routes());
 //配置详情地址
 var sa = new Router({
-    prefix:'/sa'
+    prefix:http+'/sa'
 });
 sa.get('/*_*',routerController.cityList);//地区list
 sa.get('/*',routerController.regionProvince);//省市二级页

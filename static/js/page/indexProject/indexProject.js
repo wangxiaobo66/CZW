@@ -35,46 +35,46 @@ class component extends React.Component {
                 <Header />
                 <div className="Projcet">
                     <div className="nav">
-                        <span><a href="/">首页</a></span>><span><a href="/xmxx">项目</a></span>
+                        <span><a href={(util.http())+"/"}>首页</a></span>><span><a href={(util.http())+"/xmxx"}>项目</a></span>
                     </div>
                     <nav className="details">
-                        <a className="quick-entry-link" href="/xmxx/vipxm">
+                        <a className="quick-entry-link" href={(util.http())+"/xmxx/vipxm"}>
                             <p className="details-item details-item-1"><span className="iconfont icon-8"></span></p>
                             <p>VIP项目</p>
                         </a>
-                        <a className="quick-entry-link" href="/xmxx/xmdt">
+                        <a className="quick-entry-link" href={(util.http())+"/xmxx/xmdt"}>
                             <p className="details-item details-item-2"><span className="iconfont icon-4"></span></p>
                             <p>项目动态</p>
                         </a>
-                        <a className="quick-entry-link" href="/xmxx/xmgz">
+                        <a className="quick-entry-link" href={(util.http())+"/xmxx/xmgz"}>
                             <p className="details-item details-item-3"><span className="iconfont icon-3"></span></p>
                             <p>项目跟踪</p>
                         </a>
-                        <a className="quick-entry-link" href="/xmxx/xmhzpf">
+                        <a className="quick-entry-link" href={(util.http())+"/xmxx/xmhzpf"}>
                             <p className="details-item details-item-4"><span className="iconfont icon-2"></span></p>
                             <p>项目核准</p>
                         </a>
-                        <a className="quick-entry-link" href="/xmxx/gcsj">
+                        <a className="quick-entry-link" href={(util.http())+"/xmxx/gcsj"}>
                             <p className="details-item details-item-5"><span className="iconfont icon-33"></span></p>
                             <p>工程设计</p>
                         </a>
-                        <a className="quick-entry-link" href="/xmxx/sgzb">
+                        <a className="quick-entry-link" href={(util.http())+"/xmxx/sgzb"}>
                             <p className="details-item details-item-6"><span className="iconfont icon-30"></span></p>
                             <p>施工准备</p>
                         </a>
-                        <a className="quick-entry-link" href="/xmxx/zjjd">
+                        <a className="quick-entry-link" href={(util.http())+"/xmxx/zjjd"}>
                             <p className="details-item details-item-7"><span className="iconfont icon-32"></span></p>
                             <p>再建阶段</p>
                         </a>
-                        <a className="quick-entry-link" href="/xmxx/sphc">
+                        <a className="quick-entry-link" href={(util.http())+"/xmxx/sphc"}>
                             <p className="details-item details-item-8"><span className="iconfont icon-31"></span></p>
                             <p>审批核查</p>
                         </a>
-                        <a className="quick-entry-link" href="/xmxx/jys">
+                        <a className="quick-entry-link" href={(util.http())+"/xmxx/jys"}>
                             <p className="details-item details-item-9"><span className="iconfont icon-29"></span></p>
                             <p>建议书阶段</p>
                         </a>
-                        <a className="quick-entry-link" href="/xmxx/kxx">
+                        <a className="quick-entry-link" href={(util.http())+"/xmxx/kxx"}>
                             <p className="details-item details-item-10"><span className="iconfont icon-28"></span></p>
                             <p>可行性</p>
                         </a>
@@ -94,7 +94,7 @@ class component extends React.Component {
                                 })
                                 :null
                         }
-                        <a className="more white-red" href="/xmxx/vipxm">查看更多VIP项目</a>
+                        <a className="more white-red" href={(util.http())+"/xmxx/vipxm"}>查看更多VIP项目</a>
                     </ul>
                     <Footer />
                 </div>

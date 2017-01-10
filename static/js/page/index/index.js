@@ -45,19 +45,19 @@ class component extends React.Component {
                         <span><a href="/">首页</a></span>
                     </div>
                     <nav className="details">
-                        <a className="quick-entry-link" href="/zbxx">
+                        <a className="quick-entry-link" href={(util.http())+"/zbxx"}>
                             <p className="details-item details-item-1"><span className="iconfont icon-9"></span></p>
                             <p className="title">招标</p>
                         </a>
-                        <a className="quick-entry-link" href="/cgxx">
+                        <a className="quick-entry-link" href={(util.http())+"/cgxx"}>
                             <p className="details-item details-item-2"><span className="iconfont icon-6"></span></p>
                             <p className="title">采购</p>
                         </a>
-                        <a className="quick-entry-link" href="/xmxx">
+                        <a className="quick-entry-link" href={(util.http())+"/xmxx"}>
                             <p className="details-item details-item-3"><span className="iconfont icon-5"></span></p>
                             <p className="title">项目</p>
                         </a>
-                        <a className="quick-entry-link" href="/sa">
+                        <a className="quick-entry-link" href={(util.http())+"/sa"}>
                             <p className="details-item details-item-4"><span className="iconfont icon-7"></span></p>
                             <p className="title">地区站</p>
                         </a>
@@ -69,7 +69,7 @@ class component extends React.Component {
                                 <span className="iconfont icon-36"></span>
                             </div>
                             <span className="h2-title-province">招标信息</span>
-                            <span className="more" onClick={(e) => this.click(e,'tenders')}>更多</span>
+                            <span className="more"><a href={(util.http())+"/zbxx/zbgg"}>更多</a></span>
                         </h2>
                         {
                             this.state.tenders !=null ?
@@ -86,7 +86,7 @@ class component extends React.Component {
                                 <span className="iconfont icon-37"></span>
                             </div>
                             <span className="h2-title-province">中标信息</span>
-                            <span className="more" onClick={(e) => this.click(e,'successful')}>更多</span>
+                            <span className="more"><a href={(util.http())+"/zbxx/zbgs"}>更多</a></span>
                         </h2>
                         {
                             this.state.successful !=null ?
@@ -103,7 +103,7 @@ class component extends React.Component {
                                 <span className="iconfont icon-35"></span>
                             </div>
                             <span className="h2-title-province">采购信息</span>
-                            <span className="more" onClick={(e) => this.click(e,'procurement')}>更多</span>
+                            <span className="more"><a href={(util.http())+"/cgxx"}>更多</a></span>
                         </h2>
                         {
                             this.state.procurement !=null ?

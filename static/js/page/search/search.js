@@ -50,7 +50,7 @@ class component extends React.Component {
                                        onChange={(e) => this.change(e)}/>
                             </form>
                         </div>
-                        <a className="cancel" href="/">取消</a>
+                        <a className="cancel" href={(util.http())+"/"}>取消</a>
                     </div>
                     <ul className={"ul-search limit-5" + (this.state.hide?'':' hide')}>
                         {

@@ -47,7 +47,7 @@ class component extends React.Component {
                 <Header />
                 <div className="Province">
                     <div className="nav">
-                        <span><a href="/">首页</a></span>><span><a href="/sa">地区站</a></span>><span><a href={"/sa/"+(name!=null?name:null)}>{val!=null?val:null}</a></span>
+                        <span><a href={(util.http())+"/"}>首页</a></span>><span><a href={(util.http())+"/sa"}>地区站</a></span>><span><a href={(util.http())+"/sa/"+(name!=null?name:null)}>{val!=null?val:null}</a></span>
                     </div>
                     <div className="banner">
                         <div className="banner-title"><img src="../img/banner.jpg"></img>
@@ -56,19 +56,19 @@ class component extends React.Component {
                         </div>
                     </div>
                     <nav className="details">
-                        <a className="quick-entry-link" href={"/sa/"+(name!=null?name:null)+"_zbxx"}>
+                        <a className="quick-entry-link" href={(util.http())+"/sa/"+(name!=null?name:null)+"_zbxx"}>
                             <p className="details-item details-item-1"><span className="iconfont icon-9"></span></p>
                             <p>{(val!=null?val:null)+"招标"}</p>
                         </a>
-                        <a className="quick-entry-link" href={"/sa/"+(name!=null?name:null)+"_zbgs"}>
+                        <a className="quick-entry-link" href={(util.http())+"/sa/"+(name!=null?name:null)+"_zbgs"}>
                             <p className="details-item details-item-2"><span className="iconfont icon-6"></span></p>
                             <p>{(val!=null?val:null)+"中标"}</p>
                         </a>
-                        <a className="quick-entry-link" href={"/sa/"+(name!=null?name:null)+"_cgxx"}>
+                        <a className="quick-entry-link" href={(util.http())+"/sa/"+(name!=null?name:null)+"_cgxx"}>
                             <p className="details-item details-item-3"><span className="iconfont icon-5"></span></p>
                             <p>{(val!=null?val:null)+"采购"}</p>
                         </a>
-                        <a className="quick-entry-link" href={"/sa/"+(name!=null?name:null)+"_vipxm"}>
+                        <a className="quick-entry-link" href={(util.http())+"/sa/"+(name!=null?name:null)+"_vipxm"}>
                             <p className="details-item details-item-4"><span className="iconfont icon-8"></span></p>
                             <p>{(val!=null?val:null)+"VIP项目"}</p>
                         </a>
@@ -77,7 +77,7 @@ class component extends React.Component {
                     <ul className="dynamic">
                         <h2>
                             <span className="h2-title-province">{(val!=null?val:null)+"招标公告"}</span>
-                            <span className="more"><a href={"/sa/"+(name!=null?name:null)+"_zbgg"}>更多</a></span>
+                            <span className="more"><a href={(util.http())+"/sa/"+(name!=null?name:null)+"_zbgg"}>更多</a></span>
                         </h2>
                         {
                             listZb!=null?
@@ -90,7 +90,7 @@ class component extends React.Component {
                     <ul className="dynamic">
                         <h2>
                             <span className="h2-title-province">{(val!=null?val:null)+"采购信息"}</span>
-                            <span className="more"><a href={"/sa/"+(name!=null?name:null)+"_cgxx"}>更多</a></span>
+                            <span className="more"><a href={(util.http())+"/sa/"+(name!=null?name:null)+"_cgxx"}>更多</a></span>
                         </h2>
                         {
                             listCg!=null?

@@ -53,7 +53,7 @@ class component extends React.Component {
                 <Header />
                 <div className="middle-tab">
                     <div className="nav">
-                        <span><a href="/">首页</a></span>><span><a href={"/"+(val!=null?val:null)}>{vValue!=null?vValue:null}</a></span>><span><a href={"/"+(val!=null?val:null)+"/"+(name!=null?name:null)}>{nValue!=null?nValue:null}</a></span>
+                        <span><a href={(util.http())+"/"}>首页</a></span>><span><a href={(util.http())+"/"+(val!=null?val:null)}>{vValue!=null?vValue:null}</a></span>><span><a href={(util.http())+"/"+(val!=null?val:null)+"/"+(name!=null?name:null)}>{nValue!=null?nValue:null}</a></span>
                     </div>
                     <ul>
                         {

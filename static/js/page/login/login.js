@@ -16,6 +16,7 @@ let store = createStore(CZW, applyMiddleware(thunk));
 let {} = require('./actions.js');//从actions中拿到方法
 
 const { Header } = require('../../component/Header/Header');
+const { Footer } = require('../../component/Footer/Footer');
 import '../../component/Toast/Toast';
 
 class component extends React.Component {
@@ -32,7 +33,7 @@ class component extends React.Component {
             <div className="module-login">
                 <Header />
                 <div className="Login">
-                    <div className="nav"><span><a href="/">首页</a></span>><span><a href="/login">登录</a></span></div>
+                    <div className="nav"><span><a href={(util.http())+"/"}>首页</a></span>><span><a href={(util.http())+"/login"}>登录</a></span></div>
                     <div className="content">
                         <p className="title">用户名</p>
                         <input className="input-full" type="text" value={this.state.text} placeholder="请输入您的用户名" onChange={(e) => this.change(e,"text")}/>
@@ -40,9 +41,10 @@ class component extends React.Component {
                         <input className="input-full" type="password" value={this.state.password} placeholder="请输入您的密码" onChange={(e) => this.change(e,"password")}/>
                         <p className="forget cl"><a href="tel:400-006-6655">忘记密码?请点击拨打电话联系客服</a></p>
                         <a className="btn btn-login" onClick={(e) => this.click(e)}>登录</a>
-                        <a href="/register" className="btn btn-register">立即注册</a>
+                        <a href={(util.http())+"/register"} className="btn btn-register">立即注册</a>
                     </div>
                 </div>
+                <Footer />
             </div>
         )
     }

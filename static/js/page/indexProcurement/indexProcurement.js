@@ -35,13 +35,13 @@ class component extends React.Component {
                 <Header />
                 <div className="contaner">
                     <div className="nav">
-                        <span><a href="/">首页</a></span>><span><a href="/cgxx">采购</a></span>
+                        <span><a href={(util.http())+"/"}>首页</a></span>><span><a href={(util.http())+"/cgxx"}>采购</a></span>
                     </div>
                     <ul className="dynamic">
                         <h2>
                             <span className="iconfont icon-red icon-15"></span>
                             <span className="h2-title">政府采购</span>
-                            <a href="/cgxx/zfcg">
+                            <a href={(util.http())+"/cgxx/zfcg"}>
                                 <span className="more">更多</span>
                             </a>
                         </h2>
@@ -57,7 +57,7 @@ class component extends React.Component {
                         <h2>
                             <span className="iconfont icon-red icon-19"></span>
                             <span className="h2-title">企业采购</span>
-                            <a href="/cgxx/qycg">
+                            <a href={(util.http())+"/cgxx/qycg"}>
                                 <span className="more">更多</span>
                             </a>
                         </h2>

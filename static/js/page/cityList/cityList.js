@@ -69,7 +69,7 @@ class component extends React.Component {
                 <Header />
                 <ul className="middle-tab">
                     <div className="nav">
-                        <span><a href="/">首页</a></span>><span><a href="/sa">地区站</a></span>><span><a href={"/sa/"+(this.state.name!=null?this.state.name[0]:null)}>{this.state.val!=null?this.state.val:null}</a></span>><span><a href={"/sa/"+(this.state.name!=null?this.state.name[0]:null)+"_"+(this.state.name!=null?this.state.name[1]:null)}>{(this.state.val!=null?this.state.val:null)+(this.state.value!=null?this.state.value:null)}</a></span>
+                        <span><a href={(util.http())+"/"}>首页</a></span>><span><a href={(util.http())+"/sa"}>地区站</a></span>><span><a href={(util.http())+"/sa/"+(this.state.name!=null?this.state.name[0]:null)}>{this.state.val!=null?this.state.val:null}</a></span>><span><a href={"/sa/"+(this.state.name!=null?this.state.name[0]:null)+"_"+(this.state.name!=null?this.state.name[1]:null)}>{(this.state.val!=null?this.state.val:null)+(this.state.value!=null?this.state.value:null)}</a></span>
                     </div>
                     {
                         this.state.list!=null?

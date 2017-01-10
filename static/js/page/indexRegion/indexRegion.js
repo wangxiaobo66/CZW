@@ -37,7 +37,7 @@ class component extends React.Component {
                 <Header />
                 <div className="Region">
                     <div className="nav">
-                        <span><a href="/">首页</a></span>><span><a href="/sa">地区站</a></span>
+                        <span><a href={(util.http())+"/"}>首页</a></span>><span><a href={(util.http())+"/sa"}>地区站</a></span>
                     </div>
                     <ul className="dynamic">
                         <li>
@@ -416,7 +416,7 @@ class component extends React.Component {
         let { city } = this.state;
         let cityList = [];
         city[num-1].city.map((obj) =>{
-            cityList.push(<li><a href={"/sa/"+obj.value}>{obj.name}招标</a></li>)
+            cityList.push(<li><a href={(util.http())+"/sa/"+obj.value}>{obj.name}招标</a></li>)
         });
         return cityList;
     }

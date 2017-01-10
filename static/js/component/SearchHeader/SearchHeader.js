@@ -21,7 +21,7 @@ export class SearchHeader extends React.Component {
                         <a className="serch-btn" href=""><img src="./image/search.png"/></a>
                         <input className="search-input" type="text" name="" placeholder="请输入与你要搜索的内容"/>
                     </span>
-                    <a className="cancel" href="">取消</a>
+                    <a className="cancel" href={(util.http())+"/"}>取消</a>
                 </div>
             </div>
         )

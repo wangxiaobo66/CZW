@@ -16,18 +16,21 @@ export class List extends React.Component {
         super(props);
         this.state = {
             province: null,
-            category: null
+            category: null,
+            type:null,
+            htmlid:null
         }
     }
 
     render() {
+        let {type,htmlid} =this.state;
         let obj = this.props.obj, index = this.props.index;
         return (
 
             <li className="dynamic-list" key={obj.inDate} >
-                <p className="dynamic-list-title" onClick={(e) => this.click(obj)}>{obj.title}</p>
+                <p className="dynamic-list-title" onClick={(e) => this.click(obj)}><a href={util.http()+"/"+(type!=null?type:"")+"/"+(htmlid!=null?htmlid:"")}>{obj.title}</a></p>
                 <p>
-                        <span className="dynamic-list-addr"><a title={(this.state.province != null ? this.state.province[obj.areaId - 1].name : null)+"招标网"} href={"/sa/"+(this.state.province != null ? this.state.province[obj.areaId - 1].value:null)}>{this.state.province != null ? this.state.province[obj.areaId - 1].name : null}</a></span>
+                        <span className="dynamic-list-addr"><a title={(this.state.province != null ? this.state.province[obj.areaId - 1].name : null)+"招标网"} href={(util.http())+"/sa/"+(this.state.province != null ? this.state.province[obj.areaId - 1].value:null)}>{this.state.province != null ? this.state.province[obj.areaId - 1].name : null}</a></span>
                     {
                         obj.categoryId.map((obj) => {
                             return (
@@ -63,14 +66,22 @@ export class List extends React.Component {
                     }
                 )
             }
-        )
+        );
 
+        let obj = this.props.obj;
+        let tableName3 = obj.tableName3,htmlid = obj.htmlid,id = obj.id;
+        sessionStorage.setItem("id", id);
+        let type = this.type(tableName3[0]);
+        this.setState({
+            type:type,
+            htmlid:htmlid
+        })
     }
     click(obj){
         let tableName3 = obj.tableName3,htmlid = obj.htmlid,id = obj.id;
         sessionStorage.setItem("id", id);
         let type = this.type(tableName3[0]);
-        window.location.href = '/'+type+'/'+htmlid;
+        window.location.href = (util.http())+'/'+type+'/'+htmlid;
     }
     type(num){
         let type;

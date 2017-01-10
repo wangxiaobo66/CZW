@@ -36,7 +36,7 @@ class component extends React.Component {
                 <Header />
                 <div className="Mine cl">
                     <div className="nav">
-                        <span><a href="/">首页</a></span>><span><a href="/mine">我的</a></span>
+                        <span><a href={(util.http())+"/"}>首页</a></span>><span><a href={(util.http())+"/mine"}>我的</a></span>
                     </div>
 
                     <div className="content">
@@ -76,8 +76,8 @@ class component extends React.Component {
         let describe = [];
         switch (num){
             case "0":
-                describe.push(<p className="free">开通会员您可以享受更多极具商业价值的信息和更周到的服务</p>)
-                describe.push(<p className="logo-vip">免费会员</p>)
+                describe.push(<p className="free">开通会员您可以享受更多极具商业价值的信息和更周到的服务</p>);
+                describe.push(<p className="logo-vip">免费会员</p>);
                 break;
             case "1":
                 describe.push(<p className="logo-vip">普通会员</p>);
