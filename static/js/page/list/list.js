@@ -65,7 +65,7 @@ class component extends React.Component {
                         }
                     </ul>
                     {
-                        this.total()
+                        this.total(page,val,name)
                     }
                 </div>
             </div>
@@ -73,8 +73,12 @@ class component extends React.Component {
     }
     componentDidMount() {
         let arr = util.UrlSearch();
-        let name = arr[0];
+        let name = (arr[0].split('_'))[0];
         let val = arr[1];
+        page = (arr[0].split('_'))[1];
+        if(page == undefined){
+            page = 1;
+        }
         this.stageVal(val);
         this.stageName(name);
         this.setState({
@@ -246,9 +250,9 @@ class component extends React.Component {
         }
     }
 
-    total(){
-        if(this.state.total!=null && page*rp<this.state.total){
-            return <p className="upData-p" onClick={(e) => this.upData()}>显示更多</p>
+    total(page,val,name){
+        if(this.state.total!=null){
+            return <div className="list-page"><a href={(util.http())+"/"+val+"/"+name+"_1"} className={"page-one page-a"+(page==1?" active":"")}>1</a><a  href={(util.http())+"/"+val+"/"+name+"_2"} className={"page-two page-a"+(page==2?" active":"")}>2</a><a  href={(util.http())+"/"+val+"/"+name+"_3"} className={"page-three page-a"+(page==3?" active":"")}>3</a></div>
         }else {
             return null
         }

@@ -80,7 +80,7 @@ class component extends React.Component {
                     }
                 </ul>
                 {
-                    this.total()
+                    this.total(page,name)
                 }
             </div>
         )
@@ -89,6 +89,11 @@ class component extends React.Component {
         let arr = util.UrlSearch();
         let city = arr[0];
         let name = city.split('_');
+        page = name[2];
+        if (page==undefined){
+            page = 1;
+        }
+
         util.getRequest('/city').then(
             data => {
                 data.json().then(
@@ -103,9 +108,9 @@ class component extends React.Component {
     componentWillReceiveProps(nextProps) {
 
     }
-    total(){
-        if(this.state.total!=null && page*rp<this.state.total){
-            return <p className="upData-p" onClick={(e) => this.upData()}>显示更多</p>
+    total(page,name){
+        if(this.state.total!=null){
+            return <div className="list-page"><a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_1"} className={"page-one page-a"+(page==1?" active":"")}>1</a><a  href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_2"} className={"page-two page-a"+(page==2?" active":"")}>2</a><a  href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_3"} className={"page-three page-a"+(page==3?" active":"")}>3</a></div>
         }else {
             return null
         }
