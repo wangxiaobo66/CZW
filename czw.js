@@ -1,6 +1,15 @@
 /**
  * Created by wangxiaobo on 16/11/16.
  */
+//require('babel-polyfill');
+//require('babel-plugin-add-module-exports');
+//require('node-jsx').install({harmony: true});//node端识别jsx语法
+//const register = require('babel-register');
+
+//register({
+//    presets: [ 'es2015', 'react' ],
+//    extensions: [ '.js' ]
+//});
 var koa = require('koa');
 var app = new koa();
 var router = require('koa-router')();
@@ -10,8 +19,11 @@ var routerController = require('./controller/router-controller');
 var koaBody = require('koa-body')();
 var path = require('path');
 var staticCache = require('koa-static-cache');//静态文件
-//var http = "http://139.198.5.38:10001";
-var http = "";
+
+//const routerConfig = require('./controller/router-config');
+
+//router.get('/demo',routerConfig.demo);
+
 //基础页面
 //router.get('/index',routerController.index);//首页
 router.get('/index-tenders',routerController.indexTenders);//首页-招标
@@ -23,24 +35,24 @@ router.get('/region-city',routerController.regionCity);//市级项目
 router.get('/gov-procurement',routerController.govProcurement);//政府采购
 router.get('/co-procurement',routerController.coProcurement);//企业采购
 router.get('/mine',routerController.mine);//我的
-router.get(http+'/login',routerController.login);//登录
+router.get('/login',routerController.login);//登录
 router.get('/forget',routerController.forget);//忘记密码
-router.get(http+'/register',routerController.register);//注册
+router.get('/register',routerController.register);//注册
 router.get('/navigater',routerController.navigater);//四个导航
 router.get('/list',routerController.list);//公用信息list
 router.get('/cityList',routerController.cityList)//公用地区信息list
 router.get('/details',routerController.details);//公用详情
-router.get(http+'/search',routerController.search);//搜索页面
+router.get('/search',routerController.search);//搜索页面
 //具体分级
-router.get(http+'/',routerController.index);//首页
+router.get('/',routerController.index);//首页
 //二级分页
-router.get(http+'/zbxx',routerController.indexTenders);//招标信息首页
-router.get(http+'/cgxx',routerController.indexProcurement);//采购信息首页
-router.get(http+'/xmxx',routerController.indexProject);//项目信息
-router.get(http+'/sa',routerController.indexRegion);//地区首页
+router.get('/zbxx',routerController.indexTenders);//招标信息首页
+router.get('/cgxx',routerController.indexProcurement);//采购信息首页
+router.get('/xmxx',routerController.indexProject);//项目信息
+router.get('/sa',routerController.indexRegion);//地区首页
 //招标信息三级
 var zbxx = new Router({
-    prefix: http+'/zbxx'
+    prefix: '/zbxx'
 });
 zbxx.get('/zbgg_*',routerController.list);//招标公告
 zbxx.get('/zbgg',routerController.list);//招标公告
@@ -71,7 +83,7 @@ zbxx.get('/*',routerController.details);////招标详情页
 app.use(zbxx.routes());
 //采购信息三级
 var cgxx = new Router({
-    prefix: http+'/cgxx'
+    prefix: '/cgxx'
 });
 cgxx.get('/zfcg_*',routerController.list);//政府采购
 cgxx.get('/qycg_*',routerController.list);//企业采购
@@ -82,7 +94,7 @@ cgxx.get('/*',routerController.details);////采购详情页
 app.use(cgxx.routes());
 //项目信息三级
 var xmxx = new Router({
-    prefix: http+'/xmxx'
+    prefix: '/xmxx'
 });
 xmxx.get('/vipxm_*',routerController.list);//vip项目
 xmxx.get('/xmdt_*',routerController.list);//项目动态
@@ -109,7 +121,7 @@ xmxx.get('/*',routerController.details);//项目详情页
 app.use(xmxx.routes());
 //配置详情地址
 var sa = new Router({
-    prefix:http+'/sa'
+    prefix:'/sa'
 });
 sa.get('/*_*',routerController.cityList);//地区list
 sa.get('/*_*_*',routerController.cityList);//地区list
@@ -129,7 +141,6 @@ router.post('/level',koaBody,czwController.level);//获取用户登录状态以�
 router.post('/register',koaBody,czwController.register);//注册接口
 router.post('/type',koaBody,czwController.type);//单独获取登录状态
 router.post('/status',koaBody,czwController.status);//获取用户名
-
 
 app
     .use(router.routes())

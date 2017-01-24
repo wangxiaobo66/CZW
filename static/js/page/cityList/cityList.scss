@@ -17,8 +17,8 @@
     line-height: 0.8rem;
     color: #999;
     border-radius: 0.1rem;
-    float:left;
-    margin: 0.2666666667rem;
+    display: inline-block;
+    margin-right: 0.1rem;
     box-sizing: border-box;
     font-size:0.4rem;
   }
@@ -26,5 +26,18 @@
     background-color:#ff3333;
     color: #fff;
     border:none;
+  }
+  .list-page{
+    text-align: center;
+    margin:0.2666666667rem;
+  }
+  .omit-a{
+    display: inline-block;
+    padding-top: 0.2rem;
+    color: #999;
+    margin-right: 0.1rem;
+  }
+  .next-a{
+    width: 1.4rem;
   }
 }

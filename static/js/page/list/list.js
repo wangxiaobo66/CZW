@@ -64,9 +64,11 @@ class component extends React.Component {
                                 :null
                         }
                     </ul>
-                    {
-                        this.total(page,val,name)
-                    }
+                    <div className="list-page">
+                        {
+                            this.total(page,val,name)
+                        }
+                    </div>
                 </div>
             </div>
         )
@@ -252,7 +254,50 @@ class component extends React.Component {
 
     total(page,val,name){
         if(this.state.total!=null){
-            return <div className="list-page"><a href={(util.http())+"/"+val+"/"+name+"_1"} className={"page-one page-a"+(page==1?" active":"")}>1</a><a  href={(util.http())+"/"+val+"/"+name+"_2"} className={"page-two page-a"+(page==2?" active":"")}>2</a><a  href={(util.http())+"/"+val+"/"+name+"_3"} className={"page-three page-a"+(page==3?" active":"")}>3</a></div>
+            let divPage = [],lage = 0,total = Math.ceil(this.state.total/20);
+            if(total==1){
+
+            }else if(total<=5){
+                for (var i=0;i<total;i++) {
+                    divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_"+(i+1)}
+                                    className={"page-one page-a"+(page==(i+1)?" active":"")}>{i + 1}</a>)
+                }
+            }else if(total>5){
+                if(page<=3){
+                    for (var i=0;i<total;i++) {
+                        lage++;
+                        if (lage == 4) {
+                            break;
+                        }
+                        divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_"+(i+1)}
+                                        className={"page-one page-a"+(page==(i+1)?" active":"")}>{i + 1}</a>)
+                    }
+                    divPage.push(<a className="omit-a">...</a>);
+                    divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_"+(total)} className={"page-one page-a"+(page==(total)?" active":"")}>{total}</a>);//最后一页
+                    divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_"+(parseInt(page)+1)} className="page-one page-a next-a">下一页</a>);//下一页
+                }else if(page>total-3){
+                    divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_"+(parseInt(page)-1)} className="page-one page-a next-a">上一页</a>);//上一页
+                    divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_1"} className={"page-one page-a"+(page==1?" active":"")}>1</a>);//第一页
+                    divPage.push(<a className="omit-a">...</a>);
+                    for (var i=total-3;i<total;i++){
+                        lage++;
+                        if (lage == 4){
+                            break;
+                        }
+                        divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_"+(i+1)}
+                                        className={"page-one page-a"+(page==(i+1)?" active":"")}>{i+1}</a>)
+                    }
+                }else {
+                    divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_"+(parseInt(page)-1)} className="page-one page-a next-a">上一页</a>);//上一页
+                    divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_1"} className={"page-one page-a"+(page==1?" active":"")}>1</a>);//第一页
+                    divPage.push(<a className="omit-a">...</a>);
+                    divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_"+page} className="page-one page-a active">{page}</a>);
+                    divPage.push(<a className="omit-a">...</a>);
+                    divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_"+(total)} className={"page-one page-a"+(page==(total)?" active":"")}>{total}</a>);//最后一页
+                    divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_"+(parseInt(page)+1)} className="page-one page-a next-a">下一页</a>);//下一页
+                }
+            }
+            return divPage;
         }else {
             return null
         }
@@ -281,7 +326,7 @@ class component extends React.Component {
         let info;
         switch (name){
             case 'zbgg':
-                info = {val:'',tablename1:1,tablename2:2,tablename3:3,area:'',cate:'',time:30,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:1,tablename2:2,tablename3:3,area:'',cate:'',time:3,time2:'',page:page,rp:rp};
                 break;
             case 'bggg':
                 info = {val:'变更',tablename1:1,tablename2:2,tablename3:3,area:'',cate:'',time:30,time2:'',page:page,rp:rp};
@@ -293,7 +338,7 @@ class component extends React.Component {
                 info = {val:'',tablename1:5,tablename2:'',tablename3:'',area:'',cate:'',time:30,time2:'',page:page,rp:rp};
                 break;
             case 'zhongbyg':
-                info = {val:'预告',tablename1:5,tablename2:'',tablename3:'',area:'',cate:'',time:30,time2:'',page:page,rp:rp};
+                info = {val:'预告',tablename1:5,tablename2:'',tablename3:'',area:'',cate:'',time:60,time2:'',page:page,rp:rp};
                 break;
             case 'dy':
                 info = {val:'答疑',tablename1:1,tablename2:2,tablename3:3,area:'',cate:'',time:30,time2:'',page:page,rp:rp};
@@ -324,10 +369,10 @@ class component extends React.Component {
         let info;
         switch (name){
             case 'zfcg':
-                info = {val:'',tablename1:6,tablename2:'',tablename3:'',area:'',cate:'',time:30,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:6,tablename2:'',tablename3:'',area:'',cate:'',time:60,time2:'',page:page,rp:rp};
                 break;
             case 'qycg':
-                info = {val:'',tablename1:7,tablename2:'',tablename3:'',area:'',cate:'',time:30,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:7,tablename2:'',tablename3:'',area:'',cate:'',time:60,time2:'',page:page,rp:rp};
                 break;
         }
         //发送请求
@@ -337,35 +382,34 @@ class component extends React.Component {
         let info;
         switch (name){
             case 'vipxm':
-                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'3030',area:'',cate:'',time:365,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'3030',area:'',cate:'',time:180,time2:'',page:page,rp:rp};
                 break;
             case 'xmdt':
-                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'3050',area:'',cate:'',time:365,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'3050',area:'',cate:'',time:180,time2:'',page:page,rp:rp};
                 break;
             case 'xmgz':
-                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'3070',area:'',cate:'',time:365,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'3070',area:'',cate:'',time:180,time2:'',page:page,rp:rp};
                 break;
             case 'xmhzpf':
-                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'3020',area:'',cate:'',time:365,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'3020',area:'',cate:'',time:180,time2:'',page:page,rp:rp};
                 break;
-
             case 'gcsj':
-                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'',classbid:'6',area:'',cate:'',time:365,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'',classbid:'6',area:'',cate:'',time:180,time2:'',page:page,rp:rp};
                 break;
             case 'sgzb':
-                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'',classbid:'10',area:'',cate:'',time:365,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'',classbid:'10',area:'',cate:'',time:180,time2:'',page:page,rp:rp};
                 break;
             case 'zjjd':
-                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'',classbid:'11',area:'',cate:'',time:365,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'',classbid:'11',area:'',cate:'',time:180,time2:'',page:page,rp:rp};
                 break;
             case 'sphc':
-                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'',classbid:'4',area:'',cate:'',time:365,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'',classbid:'4',area:'',cate:'',time:180,time2:'',page:page,rp:rp};
                 break;
             case 'jys':
-                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'',classbid:'2',area:'',cate:'',time:365,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'',classbid:'2',area:'',cate:'',time:180,time2:'',page:page,rp:rp};
                 break;
             case 'kxx':
-                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'',classbid:'3',area:'',cate:'',time:365,time2:'',page:page,rp:rp};
+                info = {val:'',tablename1:'',tablename2:'',tablename3:'',tablenameone:'3000',tablenametwo:'',classbid:'3',area:'',cate:'',time:180,time2:'',page:page,rp:rp};
                 break;
 
         }

@@ -101,7 +101,3 @@ export class Header extends React.Component {
         }
     }
 }
-
-Header.propTypes = {
-    //inputClick: PropTypes.func.isRequired //函数数据类型
-};

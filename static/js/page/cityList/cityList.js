@@ -79,9 +79,11 @@ class component extends React.Component {
                             :null
                     }
                 </ul>
-                {
-                    this.total(page,name)
-                }
+                <div className="list-page">
+                    {
+                        this.total(page,name)
+                    }
+                </div>
             </div>
         )
     }
@@ -110,7 +112,51 @@ class component extends React.Component {
     }
     total(page,name){
         if(this.state.total!=null){
-            return <div className="list-page"><a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_1"} className={"page-one page-a"+(page==1?" active":"")}>1</a><a  href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_2"} className={"page-two page-a"+(page==2?" active":"")}>2</a><a  href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_3"} className={"page-three page-a"+(page==3?" active":"")}>3</a></div>
+            let divPage = [],lage = 0,total = Math.ceil(this.state.total/20);
+            if(total==1){
+
+            }else if(total<=5){
+                for (var i=0;i<total;i++) {
+                    divPage.push(<a href={(util.http())+"/"+val+"/"+name+"_"+(i+1)}
+                                    className={"page-one page-a"+(page==(i+1)?" active":"")}>{i + 1}</a>)
+                }
+            }else if(total>5){
+                if(page<=3){
+                    for (var i=0;i<total;i++) {
+                        lage++;
+                        if (lage == 4) {
+                            break;
+                        }
+                        divPage.push(<a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_"+(i+1)}
+                                        className={"page-one page-a"+(page==(i+1)?" active":"")}>{i + 1}</a>)
+                    }
+                    divPage.push(<a className="omit-a">...</a>);
+                    divPage.push(<a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_"+(total)} className={"page-one page-a"+(page==(total)?" active":"")}>{total}</a>);//最后一页
+                    divPage.push(<a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_"+(parseInt(page)+1)} className="page-one page-a next-a">下一页</a>);//下一页
+                }else if(page>total-3){
+                    divPage.push(<a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_"+(parseInt(page)-1)} className="page-one page-a next-a">上一页</a>);//上一页
+                    divPage.push(<a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_1"} className={"page-one page-a"+(page==1?" active":"")}>1</a>);//第一页
+                    divPage.push(<a className="omit-a">...</a>);
+                    for (var i=total-3;i<total;i++){
+                        lage++;
+                        if (lage == 4){
+                            break;
+                        }
+                        divPage.push(<a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_"+(i+1)}
+                                        className={"page-one page-a"+(page==(i+1)?" active":"")}>{i+1}</a>)
+                    }
+                }else {
+                    divPage.push(<a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_"+(parseInt(page)-1)} className="page-one page-a next-a">上一页</a>);//上一页
+                    divPage.push(<a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_1"} className={"page-one page-a"+(page==1?" active":"")}>1</a>);//第一页
+                    divPage.push(<a className="omit-a">...</a>);
+                    divPage.push(<a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_"+page} className="page-one page-a active">{page}</a>);
+                    divPage.push(<a className="omit-a">...</a>);
+                    divPage.push(<a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_"+(total)} className={"page-one page-a"+(page==(total)?" active":"")}>{total}</a>);//最后一页
+                    divPage.push(<a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_"+(parseInt(page)+1)} className="page-one page-a next-a">下一页</a>);//下一页
+                }
+            }
+            return divPage;
+            //return <div className="list-page"><a href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_1"} className={"page-one page-a"+(page==1?" active":"")}>1</a><a  href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_2"} className={"page-two page-a"+(page==2?" active":"")}>2</a><a  href={(util.http())+"/sa/"+name[0]+"_"+name[1]+"_3"} className={"page-three page-a"+(page==3?" active":"")}>3</a></div>
         }else {
             return null
         }
@@ -175,7 +221,7 @@ class component extends React.Component {
                             tablenametwo:tablenametwo
                         });
                         //请求list
-                        let info = {val:val,tablename1:tablename1,tablename2:tablename2,tablename3:tablename3,tablenameone:tablenameone,tablenametwo:tablenametwo,area:area,cate:'',time:30,time2:'',page:page,rp:rp};
+                        let info = {val:val,tablename1:tablename1,tablename2:tablename2,tablename3:tablename3,tablenameone:tablenameone,tablenametwo:tablenametwo,area:area,cate:'',time:365,time2:'',page:page,rp:rp};
                         this.post(info)
                     }
                 })

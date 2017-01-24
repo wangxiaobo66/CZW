@@ -6,9 +6,6 @@ const util = require('../../app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
 
-const DocMeta = require('react-doc-meta');//meta
-const DocumentTitle = require('react-document-title');//title
-
 const { Provider, connect } = require('react-redux');
 const { createStore, applyMiddleware } = require('redux');
 const thunk = require('redux-thunk').default;
